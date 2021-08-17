@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_08_17_141516) do
     t.string "title"
     t.string "place"
     t.text "content"
-    t.date "date"
+    t.date "date", null: false
     t.string "image"
     t.float "rating"
     t.integer "likes_count"
