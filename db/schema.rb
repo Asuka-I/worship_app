@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_17_135409) do
+ActiveRecord::Schema.define(version: 2021_08_17_141516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "seals", force: :cascade do |t|
+    t.string "category", null: false
+    t.string "title"
+    t.string "place"
+    t.date "date", null: false
+    t.string "image"
+    t.integer "likes_count", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
