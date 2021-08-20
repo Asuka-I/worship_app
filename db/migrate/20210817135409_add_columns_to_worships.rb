@@ -1,6 +1,6 @@
 class AddColumnsToWorships < ActiveRecord::Migration[6.1]
   def change
-    hange_table :worships, bulk: true do |t|
+    change_table :worships, bulk: true do |t|
       t.text :content
       t.date :date
       t.string :image
