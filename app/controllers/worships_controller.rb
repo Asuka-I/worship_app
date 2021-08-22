@@ -1,5 +1,7 @@
 class WorshipsController < ApplicationController
-  def index; end
+  def index
+    @worships = Worship.all
+  end
 
   def show; end
 
