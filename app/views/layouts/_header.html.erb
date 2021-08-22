@@ -1,7 +1,8 @@
 <% if user_signed_in? %>
   <%# ログイン時 %>
   <%= link_to "トップ", root_path %>
-  <%= link_to "投稿画面へ", new_worship_path %>
+  <%= link_to "参拝記事", worships_path %>
+  <%= link_to "参拝投稿", new_worship_path %>
   <%= link_to "アカウント編集", edit_user_registration_path %>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>
   <%= "【ログイン中のアドレス】#{current_user.email}" %>
