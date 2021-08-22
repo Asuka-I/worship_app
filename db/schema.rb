@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2021_08_20_220313) do
   end
 
   create_table "worships", force: :cascade do |t|
-    t.string "category", null: false
+    t.string "category"
     t.string "title"
     t.string "place"
     t.text "content"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2021_08_20_220313) do
     t.string "image"
     t.float "rating"
     t.integer "likes_count"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
