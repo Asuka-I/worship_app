@@ -5,7 +5,9 @@ class WorshipsController < ApplicationController
 
   def show; end
 
-  def new; end
+  def new
+    @worship = Worship.new
+  end
 
   def create; end
 
