@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_20_220313) do
+ActiveRecord::Schema.define(version: 2021_08_24_132737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,9 +56,11 @@ ActiveRecord::Schema.define(version: 2021_08_20_220313) do
     t.string "image"
     t.float "rating"
     t.integer "likes_count"
-    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_worships_on_user_id"
   end
 
+  add_foreign_key "worships", "users"
 end

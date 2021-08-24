@@ -6,7 +6,6 @@ class AddColumnsToWorships < ActiveRecord::Migration[6.1]
       t.string :image
       t.float :rating
       t.integer :likes_count
-      t.integer :user_id
     end
   end
 end
