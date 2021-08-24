@@ -1,2 +1,13 @@
-<h1>Worships#index</h1>
-<p>Find me in app/views/worships/index.html.erb</p>
+<h1>参拝記事一覧</h1>
+<% if user_signed_in? %>
+  <% @worships.each do |worship| %>
+    <p><%= worship.category %></p>
+    <p><%= worship.title %></p>
+    <p><%= worship.place %></p>
+    <p><%= worship.date %></p>
+    <p><%= worship.content %></p>
+    <hr>
+  <% end %>
+<% else %>
+  <p>ログインしてください</p>
+<% end %>
