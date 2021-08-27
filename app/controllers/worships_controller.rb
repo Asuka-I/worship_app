@@ -11,8 +11,7 @@ class WorshipsController < ApplicationController
   end
 
   def create
-    Worship.create!(category: worship_params[:category], title: worship_params[:title], place: worship_params[:place], date: worship_params[:date],
-                    content: worship_params[:content], user_id: current_user.id)
+    current_user.worships.create!(worship_params)
   end
 
   def edit; end
