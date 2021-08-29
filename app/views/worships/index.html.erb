@@ -6,6 +6,7 @@
     <p><%= worship.place %></p>
     <p><%= worship.date %></p>
     <p><%= worship.content %></p>
+    <p><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
     <hr>
   <% end %>
 <% else %>
