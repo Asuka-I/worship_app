@@ -1,7 +1,7 @@
 class WorshipsController < ApplicationController
   before_action :authenticate_user!, except: :index
   def index
-    @worships = Worship.all
+    @worships = Worship.order(id: :asc)
   end
 
   def show
