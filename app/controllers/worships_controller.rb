@@ -4,7 +4,9 @@ class WorshipsController < ApplicationController
     @worships = Worship.all
   end
 
-  def show; end
+  def show
+    @worship = Worship.find(params[:id])
+  end
 
   def new
     @worship = Worship.new
