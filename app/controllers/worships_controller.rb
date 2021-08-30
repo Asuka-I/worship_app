@@ -14,6 +14,7 @@ class WorshipsController < ApplicationController
 
   def create
     current_user.worships.create!(worship_params)
+    redirect_to worships_path
   end
 
   def edit; end
