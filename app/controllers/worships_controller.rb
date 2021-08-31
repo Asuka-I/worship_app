@@ -1,10 +1,12 @@
 class WorshipsController < ApplicationController
   before_action :authenticate_user!, except: :index
   def index
-    @worships = Worship.all
+    @worships = Worship.all.includes(:user).order(:created_at)
   end
 
-  def show; end
+  def show
+    @worship = Worship.find(params[:id])
+  end
 
   def new
     @worship = Worship.new
@@ -12,6 +14,7 @@ class WorshipsController < ApplicationController
 
   def create
     current_user.worships.create!(worship_params)
+    redirect_to worship
   end
 
   def edit; end
