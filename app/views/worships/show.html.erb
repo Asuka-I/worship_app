@@ -5,9 +5,11 @@
 <p><%= @worship.date %></p>
 <p><%= @worship.content %></p>
 <p><%= @worship.user_name.present? ? @worship.user_name : "会員No.#{@worship.user.id}" %></p>
-<p>
-  <%= link_to "編集", edit_worship_path(@worship) %>
-  <%= link_to "削除", worship_path(@worship), method: :delete, data: { confirm: "削除しますか?" } %>
-</p>
+<% if current_user.id == @worship.user_id %>
+  <p>
+    <%= link_to "編集", edit_worship_path(@worship) %>
+    <%= link_to "削除", worship_path(@worship), method: :delete, data: { confirm: "削除しますか?" } %>
+  </p>
+<% end %>
 <hr>
 <p><%= link_to "投稿一覧へ", worships_path %></p>
