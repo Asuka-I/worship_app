@@ -1,5 +1,6 @@
 class WorshipsController < ApplicationController
   before_action :authenticate_user!, except: :index
+  before_action :set_worship, only: %i[edit update destroy]
   def index
     @worships = Worship.all.includes(:user).order(:created_at)
   end
@@ -21,11 +22,18 @@ class WorshipsController < ApplicationController
 
   def update; end
 
-  def destroy; end
-end
+  def destroy
+    @worship.destroy!
+    redirect_to @worship
+  end
 
-private
+  private
 
-def worship_params
-  params.require(:worship).permit(:category, :title, :place, :date, :content)
+  def worship_params
+    params.require(:worship).permit(:category, :title, :place, :date, :content)
+  end
+
+  def set_worship
+    @worship = current_user.worships.find(params[:id])
+  end
 end
