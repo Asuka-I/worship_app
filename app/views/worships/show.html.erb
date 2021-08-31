@@ -1,14 +1,13 @@
 <h1>参拝記事一覧</h1>
-<% if user_signed_in? %>
-  <% @worships.each do |worship| %>
-    <p><%= @worship.category %></p>
-    <p><%= @worship.title %></p>
-    <p><%= @worship.place %></p>
-    <p><%= @worship.date %></p>
-    <p><%= @worship.content %></p>
-    <p><%= @worship.user_name.present? ? @worship.user_name : "会員No.#{@worship.user.id}" %></p>
-    <hr>
-  <% end %>
-<% else %>
-  <p>ログインしてください</p>
-<% end %>
+<p><%= @worship.category %></p>
+<p><%= @worship.title %></p>
+<p><%= @worship.place %></p>
+<p><%= @worship.date %></p>
+<p><%= @worship.content %></p>
+<p><%= @worship.user_name.present? ? @worship.user_name : "会員No.#{@worship.user.id}" %></p>
+<p>
+  <%= link_to "編集", edit_worship_path(@worship) %>
+  <%= link_to "削除", worship_path(@worship), method: :delete, data: { confirm: "削除しますか?" } %>
+</p>
+<hr>
+<p><%= link_to "投稿一覧へ", worships_path %></p>

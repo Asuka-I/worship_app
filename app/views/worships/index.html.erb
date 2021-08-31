@@ -5,6 +5,11 @@
     <p><%= worship.title %></p>
     <p><%= worship.place %></p>
     <p><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
+    <p>
+      <%= link_to "詳細", worship %>
+      <%= link_to "編集", edit_worship_path(worship) %>
+      <%= link_to "削除", worship_path(worship), method: :delete, data: { confirm: "削除しますか?" } %>
+    </p>
     <hr>
   <% end %>
 <% else %>
