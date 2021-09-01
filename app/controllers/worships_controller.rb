@@ -18,9 +18,13 @@ class WorshipsController < ApplicationController
     redirect_to worship
   end
 
-  def edit; end
+  def edit
+  end
 
-  def update; end
+  def update
+    @worship.update!(worship_params)
+    redirect_to @worship
+  end
 
   def destroy
     @worship.destroy!
