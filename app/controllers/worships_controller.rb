@@ -18,8 +18,7 @@ class WorshipsController < ApplicationController
     redirect_to worship
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @worship.update!(worship_params)
