@@ -1,5 +1,5 @@
 class WorshipsController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_worship, only: %i[edit update destroy]
   def index
     @worships = Worship.all.includes(:user).order(:created_at)
@@ -20,7 +20,10 @@ class WorshipsController < ApplicationController
 
   def edit; end
 
-  def update; end
+  def update
+    @worship.update!(worship_params)
+    redirect_to @worship
+  end
 
   def destroy
     @worship.destroy!
