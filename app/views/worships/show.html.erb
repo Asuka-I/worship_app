@@ -1,10 +1,13 @@
 <h1>参拝記事一覧</h1>
 <p><%= @worship.category %></p>
 <p><%= @worship.title %></p>
-<p><%= @worship.place %></p>
-<p><%= @worship.date %></p>
+<p>場所 : <%= @worship.place %></p>
+<p>参拝日 : <%= @worship.date %></p>
 <p><%= @worship.content %></p>
 <p><%= @worship.user_name.present? ? @worship.user_name : "会員No.#{@worship.user.id}" %></p>
+<% if @worship.image? %>
+  <p><%= image_tag @worship.image.url %></p>
+<% end %>
 <% if current_user.id == @worship.user_id %>
   <p>
     <%= link_to "編集", edit_worship_path(@worship) %>
