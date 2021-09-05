@@ -9,7 +9,7 @@
   <p><%= f.date_field :date %></p>
   <p><%= f.label :content, "感想など" %></p>
   <p><%= f.text_area :content %></p>
-  <p><%= f.file_field :image %></p>
+  <p><%= f.file_field :image, accept: "image/png,image/jpeg,image/gif" %></p>
   <p><%= f.submit button_value %></p>
   <p><%= link_to "戻る", :back %></p>
 <% end %>
