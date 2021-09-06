@@ -5,12 +5,10 @@
     <p><%= worship.title %></p>
     <p><%= worship.place %></p>
     <p><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
-    <% if worship.image? %>
-      <p><%= image_tag worship.image.url(:thumb) %></p>
-    <% end %>
-    <p>
-      <%= link_to "詳細", worship %>
-    </p>
+    <%# <% if worship.image? %>
+    <%# <p><%= image_tag worship.image.url(:thumb)</p>  %>
+    <%# <% end %>
+    <p><%= link_to "詳細", worship %></p>
     <hr>
   <% end %>
 <% else %>

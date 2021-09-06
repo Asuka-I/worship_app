@@ -5,8 +5,10 @@
 <p>参拝日 : <%= @worship.date %></p>
 <p><%= @worship.content %></p>
 <p><%= @worship.user_name.present? ? @worship.user_name : "会員No.#{@worship.user.id}" %></p>
-<% if @worship.image? %>
-  <p><%= image_tag @worship.image.url %></p>
+<% if @worship.images? %>
+  <% @worship.images.each do |image|  %>
+    <p><%= image_tag image.to_s %></p>
+  <% end %>
 <% end %>
 <% if current_user.id == @worship.user_id %>
   <p>

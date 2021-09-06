@@ -27,6 +27,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   # 画像サイズ
   process resize_to_limit: [200, 300]
 
+  process resize_to_fill: [100, 100, "Center"]
+
   # ファイル形式の制限
   def extension_allowlist
     %w[jpg jpeg gif png]

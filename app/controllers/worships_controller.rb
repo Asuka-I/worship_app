@@ -32,7 +32,7 @@ class WorshipsController < ApplicationController
   private
 
   def worship_params
-    params.require(:worship).permit(:category, :title, :place, :date, :content, :image)
+    params.require(:worship).permit(:category, :title, :place, :date, :content, { images: [] })
   end
 
   def set_worship

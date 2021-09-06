@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2021_08_24_132737) do
     t.string "place"
     t.text "content"
     t.date "date"
-    t.string "image"
+    t.json "images"
     t.float "rating"
     t.integer "likes_count"
     t.datetime "created_at", precision: 6, null: false

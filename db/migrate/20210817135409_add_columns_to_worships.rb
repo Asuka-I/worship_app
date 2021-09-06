@@ -3,7 +3,7 @@ class AddColumnsToWorships < ActiveRecord::Migration[6.1]
     change_table :worships, bulk: true do |t|
       t.text :content
       t.date :date
-      t.string :image
+      t.json :images
       t.float :rating
       t.integer :likes_count
     end
