@@ -22,9 +22,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   # 画像サイズ
-  process resize_to_limit: [200, 300]
+  # 画像が大きい場合のみリサイズ
+  # process resize_to_limit: [400, 400]
 
-  process resize_to_fill: [100, 100, 'Center']
+  # 画像が小さい場合もリサイズ
+  # process resize_to_fit: [1000, 1000]
+
+  # 指定サイズで切り抜く
+  process resize_to_fill: [400, 400]
 
   # ファイル形式の制限
   def extension_allowlist
@@ -33,7 +38,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # ファイルサイズの上限
   def size_range
-    0..(5.megabytes)
+    0..(10.megabytes)
   end
 
   # jpg に変換
