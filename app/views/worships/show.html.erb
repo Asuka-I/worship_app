@@ -4,10 +4,10 @@
 <p>場所 : <%= @worship.place %></p>
 <p>参拝日 : <%= @worship.date %></p>
 <p><%= @worship.content %></p>
-<p><%= @worship.user_name.present? ? @worship.user_name : "会員No.#{@worship.user.id}" %></p>
+<%= @worship.user_name.present? ? @worship.user_name : "会員No.#{@worship.user.id}" %></p>
 <% if @worship.images? %>
   <% @worship.images.each do |image|  %>
-    <p><%= image_tag image.to_s %></p>
+    <%= image_tag image.to_s %>
   <% end %>
 <% end %>
 <% if current_user.id == @worship.user_id %>

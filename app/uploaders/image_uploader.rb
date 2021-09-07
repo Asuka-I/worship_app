@@ -1,12 +1,9 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
-  # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
 
-  # Override the directory where uploaded files will be stored.
-  # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
@@ -27,7 +24,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # 画像サイズ
   process resize_to_limit: [200, 300]
 
-  process resize_to_fill: [100, 100, "Center"]
+  process resize_to_fill: [100, 100, 'Center']
 
   # ファイル形式の制限
   def extension_allowlist
@@ -48,14 +45,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   # ファイル名をランダムに変更
-  def filename
-    "#{secure_token}.#{file.extension}" if original_filename.present?
-  end
+  # def filename
+  #   "#{secure_token}.#{file.extension}" if original_filename.present?
+  # end
 
-  protected
+  # protected
 
-  def secure_token
-    var = :"@#{mounted_as}_secure_token"
-    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
-  end
+  # def secure_token
+  #   var = :"@#{mounted_as}_secure_token"
+  #   model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
+  # end
 end
