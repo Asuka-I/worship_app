@@ -15,7 +15,6 @@ class WorshipsController < ApplicationController
 
   def create
     current_user.worships.create!(worship_params)
-    redirect_to worship
   end
 
   def edit; end
@@ -33,7 +32,7 @@ class WorshipsController < ApplicationController
   private
 
   def worship_params
-    params.require(:worship).permit(:category, :title, :place, :date, :content)
+    params.require(:worship).permit(:category, :title, :place, :date, :content, { images: [] }, :images_cache, :remove_images)
   end
 
   def set_worship
