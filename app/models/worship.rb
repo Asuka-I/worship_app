@@ -3,5 +3,7 @@ class Worship < ApplicationRecord
 
   belongs_to :user
 
+  has_many :comments
+
   delegate :name, to: :user, prefix: true, allow_nil: true
 end
