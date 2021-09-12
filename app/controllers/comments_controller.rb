@@ -1,15 +1,11 @@
 class CommentsController < ApplicationController
-  def index; end
+  def create
+    current_user.comments.create!(comment_params)
+  end
 
-  def show; end
+  private
 
-  def new; end
-
-  def create; end
-
-  def edit; end
-
-  def update; end
-
-  def destroy; end
+  def comment_params
+    params.require(:comment).permit(:content)
+  end
 end

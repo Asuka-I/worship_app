@@ -7,6 +7,8 @@ class WorshipsController < ApplicationController
 
   def show
     @worship = Worship.find(params[:id])
+    @comments = @worship.comments.includes(:user)
+    @comment = Comment.new
   end
 
   def new
