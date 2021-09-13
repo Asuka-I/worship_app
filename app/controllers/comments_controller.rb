@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def create
     current_user.comments.create(comment_params)
-    redirect_to root_path
+    redirect_back(fallback_location: root_path)
   end
 
   private
