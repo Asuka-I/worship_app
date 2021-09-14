@@ -17,4 +17,20 @@
   </p>
 <% end %>
 <hr>
+<% if current_user %>
+  <%= form_with(model: [@worship, @comment], local: true) do |f| %>
+    <%= f.text_field :content %>
+    <%= f.submit 'コメントする' %>
+  <% end %>
+<% end %>
+<hr>
+<h4>コメント一覧</h4>
+<% if @comments %>
+  <% @comments.each do |comment| %>
+    <p>
+      <%= comment.user_name %>
+      <%= comment.content %>
+    </p>
+  <% end %>
+<% end %>
 <p><%= link_to "投稿一覧へ", worships_path %></p>
