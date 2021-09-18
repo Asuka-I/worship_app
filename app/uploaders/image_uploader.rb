@@ -17,9 +17,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # サムネイル画像を表示
-  version :thumb do
-    process resize_to_fit: [100, 100]
-  end
+  # version :thumb do
+  #   process resize_to_fit: [300, 180]
+  # end
 
   # 画像サイズ
   # 画像が大きい場合のみリサイズ
