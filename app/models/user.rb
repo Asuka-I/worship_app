@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :worships, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :seals, dependent: :destroy
 end
