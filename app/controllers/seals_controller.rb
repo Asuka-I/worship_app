@@ -1,5 +1,7 @@
 class SealsController < ApplicationController
-  def index; end
+  def index
+    @seals = Worship.all.includes(:user).order(:created_at)
+  end
 
   def show; end
 
