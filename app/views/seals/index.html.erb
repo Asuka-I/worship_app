@@ -9,6 +9,7 @@
               <div class="card">
                 <p><%= seal.category %> | <%= seal.place %></p>
                 <p><%= seal.title %></p>
+                <p><%= seal.user_name.present? ? seal.user_name : "会員No.#{seal.user.id}" %></p>
               </div>
             </div>
           <% end %>

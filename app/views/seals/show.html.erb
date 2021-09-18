@@ -1,2 +1,14 @@
-<h1>Seals#show</h1>
-<p>Find me in app/views/seals/show.html.erb</p>
+<h1>御朱印帳 詳細</h1>
+<p><%= @seal.category %></p>
+<p><%= @seal.title %></p>
+<p>場所 : <%= @seal.place %></p>
+<p>参拝日 : <%= @seal.date %></p>
+<%= @seal.user_name.present? ? @seal.user_name : "会員No.#{@seal.user.id}" %></p>
+<% if current_user.id == @seal.user_id %>
+  <p>
+    <%= link_to "編集", edit_seal_path(@worship) %>
+    <%= link_to "削除", seal_path(@seal), method: :delete, data: { confirm: "削除しますか?" } %>
+  </p>
+<% end %>
+<hr>
+<p><%= link_to "投稿一覧へ", worships_path %></p>

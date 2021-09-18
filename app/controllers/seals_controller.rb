@@ -3,7 +3,9 @@ class SealsController < ApplicationController
     @seals = Seal.all.includes(:user).order(:created_at)
   end
 
-  def show; end
+  def show
+    @seal = Seal.find(params[:id])
+  end
 
   def new
     @seal = Seal.new
