@@ -21,7 +21,10 @@ class SealsController < ApplicationController
 
   def edit; end
 
-  def update; end
+  def update
+    @seal.update!(seal_params)
+    redirect_to @seal
+  end
 
   def destroy
     @seal.destroy!
