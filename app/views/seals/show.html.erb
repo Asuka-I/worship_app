@@ -6,9 +6,9 @@
 <%= @seal.user_name.present? ? @seal.user_name : "会員No.#{@seal.user.id}" %></p>
 <% if current_user.id == @seal.user_id %>
   <p>
-    <%= link_to "編集", edit_seal_path(@worship) %>
+    <%= link_to "編集", edit_seal_path(@seal) %>
     <%= link_to "削除", seal_path(@seal), method: :delete, data: { confirm: "削除しますか?" } %>
   </p>
 <% end %>
 <hr>
-<p><%= link_to "投稿一覧へ", worships_path %></p>
+<p><%= link_to "投稿一覧へ", seals_path %></p>
