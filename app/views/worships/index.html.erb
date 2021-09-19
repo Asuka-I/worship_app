@@ -5,20 +5,20 @@
       <% if user_signed_in? %>
         <% @worships.each do |worship| %>
           <div class="col-4 col-md-3 col-lg-2">
-          <a href="/worships/<%= worship.id %>">
-            <div class="card">
-              <% if worship.images? %>
-                <p><%= image_tag worship.images[0].to_s, class: 'card-img-top' %></p>
-              <% end %>
-              <p><%= worship.category %> | <%= worship.place %></p>
-              <p><%= worship.title %></p>
-              <p><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
-          　</div>
-        　</div>
-        <% end %>
-      <% else %>
+            <a href="/worships/<%= worship.id %>">
+              <div class="card">
+                <% if worship.images? %>
+                  <p><%= image_tag worship.images[0].to_s, class: 'card-img-top' %></p>
+                <% end %>
+                <p><%= worship.category %> | <%= worship.place %></p>
+                <p><%= worship.title %></p>
+                <p><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
           <p>ログインしてください</p>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
