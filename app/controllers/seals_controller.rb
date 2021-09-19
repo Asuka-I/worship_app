@@ -40,5 +40,4 @@ class SealsController < ApplicationController
   def set_seal
     @seal = current_user.seals.find(params[:id])
   end
-
 end
