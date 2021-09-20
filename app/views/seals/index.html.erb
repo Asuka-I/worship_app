@@ -7,6 +7,9 @@
           <div class="col-4 col-md-3 col-lg-2">
             <a href="/seals/<%= seal.id %>">
               <div class="card">
+                <% if seal.images? %>
+                  <p><%= image_tag seal.images[0].to_s, class: 'card-img-top' %></p>
+                <% end %>
                 <p><%= seal.category %> | <%= seal.place %></p>
                 <p><%= seal.title %></p>
                 <p><%= seal.user_name.present? ? seal.user_name : "会員No.#{seal.user.id}" %></p>

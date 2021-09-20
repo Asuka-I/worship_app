@@ -8,7 +8,7 @@
   <p><%= f.label :date, "参拝日" %></p>
   <p><%= f.date_field :date %></p>
   <p>
-    <%= f.file_field :images,  multiple: true %>
+    <%= f.file_field :images, multiple: true, accept: "images/png,images/jpeg,images/gif" %>
   </p>
   <p><%= f.submit button_value %></p>
   <p><%= link_to "戻る", :back %></p>
