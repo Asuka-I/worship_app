@@ -4,6 +4,11 @@
 <p>場所 : <%= @seal.place %></p>
 <p>参拝日 : <%= @seal.date %></p>
 <%= @seal.user_name.present? ? @seal.user_name : "会員No.#{@seal.user.id}" %></p>
+<% if @seal.images? %>
+  <% @seal.images.each do |image|  %>
+    <%= image_tag image.to_s %>
+  <% end %>
+<% end %>
 <% if current_user.id == @seal.user_id %>
   <p>
     <%= link_to "編集", edit_seal_path(@seal) %>
