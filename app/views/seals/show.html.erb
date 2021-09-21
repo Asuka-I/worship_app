@@ -1,4 +1,9 @@
 <h1>御朱印帳 詳細</h1>
+<% if @seal.images? %>
+  <% @seal.images.each do |image|  %>
+    <%= image_tag image.to_s %>
+  <% end %>
+<% end %>
 <p><%= @seal.category %></p>
 <p><%= @seal.title %></p>
 <p>場所 : <%= @seal.place %></p>

@@ -34,7 +34,7 @@ class SealsController < ApplicationController
   private
 
   def seal_params
-    params.require(:seal).permit(:category, :title, :place, :date)
+    params.require(:seal).permit(:category, :title, :place, :date, { images: [] })
   end
 
   def set_seal
