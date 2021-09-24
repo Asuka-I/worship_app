@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_26_051716) do
+ActiveRecord::Schema.define(version: 2021_09_26_052912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2021_09_26_051716) do
     t.bigint "worship_id", null: false
     t.index ["user_id"], name: "index_comments_on_user_id"
     t.index ["worship_id"], name: "index_comments_on_worship_id"
+  end
+
+  create_table "seal_likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "seal_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["seal_id"], name: "index_seal_likes_on_seal_id"
+    t.index ["user_id", "seal_id"], name: "index_seal_likes_on_user_id_and_seal_id", unique: true
+    t.index ["user_id"], name: "index_seal_likes_on_user_id"
   end
 
   create_table "seals", force: :cascade do |t|
@@ -80,6 +90,8 @@ ActiveRecord::Schema.define(version: 2021_09_26_051716) do
 
   add_foreign_key "comments", "users"
   add_foreign_key "comments", "worships"
+  add_foreign_key "seal_likes", "seals"
+  add_foreign_key "seal_likes", "users"
   add_foreign_key "seals", "users"
   add_foreign_key "worship_likes", "users"
   add_foreign_key "worship_likes", "worships"
