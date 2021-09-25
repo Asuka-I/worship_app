@@ -1,5 +1,6 @@
 class Seal < ApplicationRecord
   belongs_to :user
+  has_many :seal_likes, dependent: :destroy
 
   mount_uploaders :images, SealImageUploader
 
