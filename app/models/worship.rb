@@ -8,4 +8,7 @@ class Worship < ApplicationRecord
 
   delegate :name, to: :user, prefix: true, allow_nil: true
 
+  def liked_worship_by?(user)
+    worship_likes.exists?(user_id: user.id)
+  end
 end

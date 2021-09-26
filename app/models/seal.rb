@@ -6,4 +6,8 @@ class Seal < ApplicationRecord
   mount_uploaders :images, SealImageUploader
 
   delegate :name, to: :user, prefix: true, allow_nil: true
+
+  def liked_seal_by?(user)
+    seal_likes.exists?(user_id: user.id)
+  end
 end
