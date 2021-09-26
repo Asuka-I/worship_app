@@ -13,11 +13,16 @@
                 <p><%= seal.category %> | <%= seal.place %></p>
                 <p><%= seal.title %></p>
                 <p><%= seal.user_name.present? ? seal.user_name : "会員No.#{seal.user.id}" %></p>
+                <p>
+                  <% if seal.liked_seal_by?(current_user) %>
+                    <%= render "like", seal: seal %>
+                  <% else %>
+                    <%= render "dislike", seal: seal %>
+                  <% end %>
+                </p>
               </div>
             </div>
           <% end %>
-        <% else %>
-          <p>ログインしてください</p>
         <% end %>
       </div>
     </div>
