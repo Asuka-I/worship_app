@@ -12,12 +12,9 @@
 <% end %>
 <p>
   <% if @worship.liked_worship_by?(current_user) %>
-    <%# 「いいね！」済み %>
-    <%# 「いいね！」済み（クリックすると「いいね」解除） %>
-    <%= link_to "★", worship_worship_likes_path(@worship), method: :delete %>
+    <%= render "like", worship: @worship %>
   <% else %>
-    <%# 「いいね」していない（クリックすると「いいね！」にする） %>
-    <%= link_to "☆", worship_worship_likes_path(@worship), method: :post %>
+    <%= render "dislike", worship: @worship %>
   <% end %>
 </p>
 <% if current_user.id == @worship.user_id %>
