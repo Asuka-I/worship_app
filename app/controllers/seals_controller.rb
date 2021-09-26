@@ -3,7 +3,7 @@ class SealsController < ApplicationController
   before_action :set_seal, only: %i[edit update destroy]
 
   def index
-    @seals = Seal.all.includes(:user).order(:created_at)
+    @seals = Seal.all.includes(:user, :seal_likes).order(:created_at)
   end
 
   def show
