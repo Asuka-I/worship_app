@@ -10,6 +10,15 @@
     <%= image_tag image.to_s %>
   <% end %>
 <% end %>
+<p>
+  <% if @worship.liked_worship_by?(current_user) %>
+    <%# 「いいね！」済み %>
+    ★
+  <% else %>
+    <%# 「いいね」していない %>
+    ☆
+  <% end %>
+</p>
 <% if current_user.id == @worship.user_id %>
   <p>
     <%= link_to "編集", edit_worship_path(@worship) %>
