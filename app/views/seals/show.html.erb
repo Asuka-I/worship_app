@@ -9,7 +9,7 @@
 <p>場所 : <%= @seal.place %></p>
 <p>参拝日 : <%= @seal.date %></p>
 <%= @seal.user_name.present? ? @seal.user_name : "会員No.#{@seal.user.id}" %></p>
-<p>
+<p id="seal-<%= @seal.id %>">
   <% if @seal.liked_seal_by?(current_user) %>
     <%= render "like", seal: @seal %>
   <% else %>

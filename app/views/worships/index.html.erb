@@ -13,7 +13,7 @@
                 <p><%= worship.category %> | <%= worship.place %></p>
                 <p><%= worship.title %></p>
                 <p><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
-                <p>
+                <p id="worship-<%= worship.id %>">
                   <% if worship.liked_worship_by?(current_user) %>
                     <%= render "like", worship: worship %>
                   <% else %>
