@@ -3,6 +3,5 @@ class ResetAllSealCacheCounters < ActiveRecord::Migration[6.1]
     Seal.find_each { |seal| Seal.reset_counters(seal.id, :likes_count) }
   end
 
-  def down
-  end
+  def down; end
 end
