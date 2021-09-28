@@ -1,0 +1,24 @@
+ja:
+  activerecord:
+    models:
+      worship: 参拝
+      seal: 御朱印
+      worship_like: いいね
+      seal_like: いいね
+      comment: コメント
+    attributes:
+      worship:
+        category: カテゴリー
+        title: タイトル
+        place: 場所
+        content: 感想
+        date: 日付
+      seal:
+        category: カテゴリー
+        title: タイトル
+        place: 場所
+      comment:
+        content: コメント
+  time:
+    formats:
+      default: "%Y年%-m月%-d日(%a) %-H時%-M分%-S秒"

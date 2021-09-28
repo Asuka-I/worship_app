@@ -10,6 +10,13 @@
     <%= image_tag image.to_s %>
   <% end %>
 <% end %>
+<p id="worship-<%= @worship.id %>">
+  <% if @worship.liked_worship_by?(current_user) %>
+    <%= render "like", worship: @worship %>
+  <% else %>
+    <%= render "dislike", worship: @worship %>
+  <% end %>
+</p>
 <% if current_user.id == @worship.user_id %>
   <p>
     <%= link_to "編集", edit_worship_path(@worship) %>

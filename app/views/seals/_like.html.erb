@@ -1,0 +1,3 @@
+<%# 「いいね！」済み（クリックすると「いいね」解除） %>
+<%= link_to "★", seal_seal_likes_path(seal), method: :delete, remote: true %>
+<%= seal.likes_count %>

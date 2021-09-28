@@ -2,7 +2,7 @@ class WorshipsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_worship, only: %i[edit update destroy]
   def index
-    @worships = Worship.all.includes(:user).order(:created_at)
+    @worships = Worship.all.includes(:user, :worship_likes).order(:created_at)
   end
 
   def show
