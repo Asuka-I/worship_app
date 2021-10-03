@@ -3,10 +3,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users, only: :show  do
+  resources :users, only: %i[show] do
     resource :relationships, only: [:create, :destroy]
-    get "followings" => "relationships#followings", as: "followings"
-    get "followers" => "relationships#followers", as: "followers"
+    get :follows, on: :member
+    get :followers, on: :member
   end
 
   resources :seals do
