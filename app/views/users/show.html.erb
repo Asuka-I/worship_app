@@ -1,8 +1,14 @@
-<% @worships.each do |worship| %>
-  <p><%= worship.category %></p>
-  <p><%= worship.title %></p>
-  <p><%= worship.place %></p>
-  <p><%= worship.date %></p>
-  <p><%= worship.content %></p>
-  <hr>
+<%= render "follow_button" %>
+<h2>Follower Users</h2>
+または
+<h2>Follow Users</h2>
+<% if @users.exists? %>
+  <p>name</p>
+  <% @users.each do |user| %>
+    <p><%= @user.name %></p>
+    <p>フォロー数: <%= @user.followings.count %></p>
+    <p>フォロワー数: <%= @user.followers.count %></p>
+  <% end %>
+<% else %>
+  <p>ユーザーはいません</p>
 <% end %>
