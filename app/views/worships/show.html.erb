@@ -5,9 +5,9 @@
 <p>参拝日 : <%= @worship.date %></p>
 <p><%= @worship.content %></p>
 <% if @worship.user_name.present? %>
-  <%= link_to "#{@worship.user.name}", user_path(@worship.user.id) %>
+  <%= link_to "#{@worship.user_name}", user_path(@worship.user_id) %>
 <% else %>
-  <%= link_to "会員No.#{@worship.user.id}", user_path(@worship.user.id) %>
+  <%= link_to "会員No.#{@worship.user_id}", user_path(@worship.user_id) %>
 <% end %>
 <% if @worship.images? %>
   <% @worship.images.each do |image|  %>
