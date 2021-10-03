@@ -2,3 +2,4 @@
   <%= @user.followings.count %></p>
 <p><%=link_to "フォロワー", followers_user_path(@user.id) %>
   <%= @user.followers.count %></p>
+<%= render "relationships/follow_button" %>
