@@ -8,7 +8,11 @@
 <p><%= @seal.title %></p>
 <p>場所 : <%= @seal.place %></p>
 <p>参拝日 : <%= @seal.date %></p>
-<%= @seal.user_name.present? ? @seal.user_name : "会員No.#{@seal.user.id}" %></p>
+<% if @seal.user_name.present? %>
+  <%= link_to "#{@seal.user_name}", user_path(@seal.user_id) %>
+<% else %>
+  <%= link_to "会員No.#{@seal.user_id}", user_path(@seal.user_id) %>
+<% end %>
 <p id="seal-<%= @seal.id %>">
   <% if @seal.liked_seal_by?(current_user) %>
     <%= render "like", seal: @seal %>

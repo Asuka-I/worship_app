@@ -1,8 +1,5 @@
-<% @worships.each do |worship| %>
-  <p><%= worship.category %></p>
-  <p><%= worship.title %></p>
-  <p><%= worship.place %></p>
-  <p><%= worship.date %></p>
-  <p><%= worship.content %></p>
-  <hr>
-<% end %>
+<p><%=link_to "フォロー中", follows_user_path(@user.id) %>
+  <%= @user.followings.count %></p>
+<p><%=link_to "フォロワー", followers_user_path(@user.id) %>
+  <%= @user.followers.count %></p>
+<%= render "relationships/follow_button" %>
