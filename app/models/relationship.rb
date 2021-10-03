@@ -1,4 +1,2 @@
-class FollowRelationship < ApplicationRecord
-  belongs_to :follower
-  belongs_to :following
+class Relationship < ApplicationRecord
 end
