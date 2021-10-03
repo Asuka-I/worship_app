@@ -1,14 +1,11 @@
-<%= render "follow_button" %>
-<h2>Follower Users</h2>
-または
-<h2>Follow Users</h2>
-<% if @users.exists? %>
-  <p>name</p>
-  <% @users.each do |user| %>
-    <p><%= @user.name %></p>
-    <p>フォロー数: <%= @user.followings.count %></p>
-    <p>フォロワー数: <%= @user.followers.count %></p>
+<p><%=link_to "フォロー中", follows_user_path(@user.id) %>
+  <%= @user.followings.count %></p>
+<p><%=link_to "フォロワー", followers_user_path(@user.id) %>
+  <%= @user.followers.count %></p>
+<% if current_user != @user %>
+  <% if @user.followed_by?(current_user) %>
+    <p><%=link_to "フォロー済み", user_relationships_path(@user.id), method: :delete %></p>
+  <% else %>
+    <p><%=link_to "フォローする", user_relationships_path(@user.id), method: :post %></p>
   <% end %>
-<% else %>
-  <p>ユーザーはいません</p>
 <% end %>
