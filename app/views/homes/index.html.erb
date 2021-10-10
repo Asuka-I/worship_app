@@ -1,1 +1,55 @@
-<h1>top page</h1>
+<main>
+  <!-- 参拝記事 一覧 -->
+  <h2 class="featurette-heading">参拝記事一覧</h2>
+  <p><%= link_to "もっと見る", worships_path, class: "btn btn-secondary", role: "button" %></p>
+  <div class="texts-wrapper">
+    <div class="contents-title text-center">
+      <div class="row" >
+        <% if user_signed_in? %>
+          <% @worships.each do |worship| %>
+            <div class="col-4 col-md-3 col-lg-2">
+              <a href="/worships/<%= worship.id %>">
+                <div class="card">
+                  <% if worship.images? %>
+                    <p><%= image_tag worship.images[0].to_s, class: 'card-img-top' %></p>
+                  <% end %>
+                  <p><%= worship.category %> | <%= worship.place %></p>
+                  <p><%= worship.title %></p>
+                  <p><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="featurette-divider">
+  <!-- ご朱印帳 一覧 -->
+  <div>
+    <h2 class="featurette-heading">ご朱印帳一覧</h2>
+    <p><%= link_to "もっと見る", seals_path, class: "btn btn-secondary", role: "button" %></p>
+    <div class="texts-wrapper">
+      <div class="contents-title text-center">
+        <div class="row" >
+          <% if user_signed_in? %>
+            <% @seals.each do |seal| %>
+              <div class="col-4 col-md-3 col-lg-2">
+                <a href="/seals/<%= seal.id %>">
+                  <div class="card">
+                    <% if seal.images? %>
+                      <p><%= image_tag seal.images[0].to_s, class: 'card-img-top' %></p>
+                    <% end %>
+                    <p><%= seal.category %> | <%= seal.place %></p>
+                    <p><%= seal.title %></p>
+                    <p><%= seal.user_name.present? ? seal.user_name : "会員No.#{seal.user.id}" %></p>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
