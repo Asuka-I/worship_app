@@ -16,6 +16,7 @@
 
 @import "bootstrap/scss/bootstrap";
 
+/***** 共通  *****/
 html, body{
   height:100%;
 }
@@ -25,39 +26,6 @@ html, body{
   position: relative;
   min-height: 100%;
   padding-bottom: 50px;
-}
-
-// 参拝 御朱印 カードデザイン
-.card {
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px #ccc;
-}
-.card-img {
-  border-radius: 5px 5px 0 0;
-  max-width: 100%;
-  height: auto;
-}
-.card-content {
-  padding: 20px;
-}
-.card-text {
-  color: #777;
-  font-size: 14px;
-  line-height: 1.5;
-}
-.card-link {
-  text-align: center;
-  border-top: 1px solid #eee;
-  padding: 20px;
-}
-.card-link a {
-  text-decoration: none;
-  color: #0bd;
-  margin: 0 10px;
-}
-.card-link a:hover {
-  color: #0090aa;
 }
 
 /***** ナビゲーションバー  *****/

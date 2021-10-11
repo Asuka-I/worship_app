@@ -1,6 +1,16 @@
-<main>
+<main role="main">
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1>Album example</h1>
+      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+      <p>
+        <a href="#" class="btn btn-primary my-2">Main call to action</a>
+        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+      </p>
+    </div>
+  </section>
   <!-- 参拝記事 一覧 -->
-  <h2 class="featurette-heading">参拝記事一覧</h2>
+  <h2>参拝記事一覧</h2>
   <p><%= link_to "もっと見る", worships_path, class: "btn btn-secondary", role: "button" %></p>
   <div class="texts-wrapper">
     <div class="contents-title text-center">
@@ -24,10 +34,10 @@
       </div>
     </div>
   </div>
-  <hr class="featurette-divider">
+  <hr>
   <!-- ご朱印帳 一覧 -->
   <div>
-    <h2 class="featurette-heading">ご朱印帳一覧</h2>
+    <h2>ご朱印帳一覧</h2>
     <p><%= link_to "もっと見る", seals_path, class: "btn btn-secondary", role: "button" %></p>
     <div class="texts-wrapper">
       <div class="contents-title text-center">
@@ -50,6 +60,38 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</main>
+
+<main role="main">
+  <!-- 参拝記事 一覧 -->
+  <h2>参拝記事一覧</h2>
+  <p><%= link_to "もっと見る", worships_path, class: "btn btn-secondary", role: "button" %></p>
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+        <% if user_signed_in? %>
+          <% @worships.each do |worship| %>
+                <%# <div class="col-4 col-md-3 col-lg-2"> %>
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <a href="/worships/<%= worship.id %>">
+                <% if worship.images? %>
+                  <%= image_tag worship.images[0].to_s, class: 'card-img-top' %>
+                <% end %>
+                <div class="card-body">
+                  <p class="card-text"><%= worship.category %> | <%= worship.place %></p>
+                  <p class="card-text"><%= worship.title %></p>
+                  <p class="card-text"><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
     </div>
   </div>
 </main>
