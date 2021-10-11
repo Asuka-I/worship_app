@@ -17,16 +17,6 @@
 @import "bootstrap/scss/bootstrap";
 
 /***** 共通  *****/
-html, body{
-  height:100%;
-}
-
-.main{
-  width: 100%;
-  position: relative;
-  min-height: 100%;
-  padding-bottom: 50px;
-}
 
 /***** ナビゲーションバー  *****/
 .navbar .dropdown-menu div[class*='col'] {
@@ -88,15 +78,9 @@ html, body{
 /***** フッター *****/
 footer {
   background-color: #383c3c;
-  bottom:0;
-  height:50px;
-  padding-top: 0.5rem;
-  padding-bottom: 1rem;
-  position:absolute;
-  text-align: center;
-  width: 100%
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 footer p {
-  margin-bottom: .25rem;
 }
