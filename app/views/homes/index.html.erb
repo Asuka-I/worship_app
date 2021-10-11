@@ -29,38 +29,40 @@
                     <p class="card-text"><%= worship.title %></p>
                     <p class="card-text"><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
                   </div>
-                </div>
+                </a>
               </div>
-            <% end %>
+            </div>
           <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
-    <!-- ご朱印帳 一覧 -->
-    <div class="album py-5 bg-light">
-      <div class="container">
-        <h2>ご朱印帳一覧</h2>
-        <p><%= link_to "もっと見る", seals_path, class: "btn btn-secondary", role: "button" %></p>
-        <div class="row">
-          <% if user_signed_in? %>
-            <% @seals.each do |seal| %>
-              <%# <div class="col-4 col-md-3 col-lg-2"> %>
-              <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                  <a href="/seals/<%= seal.id %>">
-                    <% if seal.images? %>
-                      <p><%= image_tag seal.images[0].to_s, class: 'card-img-top' %></p>
-                    <% end %>
-                    <div class="card-body">
-                      <p class="card-text"><%= seal.category %> | <%= seal.place %></p>
-                      <p class="card-text"><%= seal.title %></p>
-                      <p class="card-text"><%= seal.user_name.present? ? seal.user_name : "会員No.#{seal.user.id}" %></p>
-                    </div>
+  </div>
+  <!-- ご朱印帳 一覧 -->
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <h2>ご朱印帳一覧</h2>
+      <p><%= link_to "もっと見る", seals_path, class: "btn btn-secondary", role: "button" %></p>
+      <div class="row">
+        <% if user_signed_in? %>
+          <% @seals.each do |seal| %>
+            <%# <div class="col-4 col-md-3 col-lg-2"> %>
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <a href="/seals/<%= seal.id %>">
+                  <% if seal.images? %>
+                    <p><%= image_tag seal.images[0].to_s, class: 'card-img-top' %></p>
+                  <% end %>
+                  <div class="card-body">
+                    <p class="card-text"><%= seal.category %> | <%= seal.place %></p>
+                    <p class="card-text"><%= seal.title %></p>
+                    <p class="card-text"><%= seal.user_name.present? ? seal.user_name : "会員No.#{seal.user.id}" %></p>
                   </div>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
+                </a>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       </div>
-    </main>
+    </div>
+  </div>
+</main>
