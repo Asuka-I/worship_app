@@ -13,7 +13,6 @@
   <div class="album py-5 bg-light">
     <div class="container">
       <h2>参拝記事一覧</h2>
-      <p><%= link_to "もっと見る", worships_path, class: "btn btn-secondary", role: "button" %></p>
       <div class="row">
         <% if user_signed_in? %>
           <% @worships.each do |worship| %>
@@ -37,13 +36,13 @@
           <% end %>
         <% end %>
       </div>
+      <p class="btn-see-more"><%= link_to "もっと見る", worships_path, class: "btn btn-secondary", role: "button" %></p>
     </div>
   </div>
   <!-- ご朱印帳 一覧 -->
   <div class="album py-5 bg-light">
     <div class="container">
       <h2>ご朱印帳一覧</h2>
-      <p><%= link_to "もっと見る", seals_path, class: "btn btn-secondary", role: "button" %></p>
       <div class="row">
         <% if user_signed_in? %>
           <% @seals.each do |seal| %>
@@ -67,6 +66,7 @@
           <% end %>
         <% end %>
       </div>
+      <p class="btn-see-more"><%= link_to "もっと見る", seals_path, class: "btn btn-secondary", role: "button" %></p>
     </div>
   </div>
 </main>
