@@ -8,31 +8,33 @@
   <!-- 参拝記事 一覧 -->
   <div class="album py-5 bg-light">
     <div class="container">
-      <h2>参拝記事一覧</h2>
-      <div class="row">
-        <% if user_signed_in? %>
-          <% @worships.each do |worship| %>
-            <%# <div class="col-4 col-md-3 col-lg-2"> %>
-            <div class="col-md-3 ">
-              <div class="card mb-4 shadow-sm">
-                <a href="/worships/<%= worship.id %>">
-                  <% if worship.images? %>
-                    <%= image_tag worship.images[0].to_s, class: 'card-img-top' %>
-                  <% else %>
-                    <%= image_tag "default.jpg", class: 'card-img-top' %>
-                  <% end %>
-                  <div class="card-body">
-                    <p class="card-text"><%= worship.category %> | <%= worship.place %></p>
-                    <p class="card-text"><%= worship.title %></p>
-                    <p class="card-text"><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
-                  </div>
-                </a>
+      <div class="bg-mask">
+        <h2>参拝記事一覧</h2>
+        <div class="row">
+          <% if user_signed_in? %>
+            <% @worships.each do |worship| %>
+              <%# <div class="col-4 col-md-3 col-lg-2"> %>
+              <div class="col-md-3 col-6">
+                <div class="card mb-4 shadow-sm">
+                  <a href="/worships/<%= worship.id %>">
+                    <% if worship.images? %>
+                      <%= image_tag worship.images[0].to_s, class: 'card-img-top' %>
+                    <% else %>
+                      <%= image_tag "default.jpg", class: 'card-img-top' %>
+                    <% end %>
+                    <div class="card-body">
+                      <p class="card-text"><%= worship.category %> | <%= worship.place %></p>
+                      <p class="card-text"><%= worship.title %></p>
+                      <p class="card-text"><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
+                    </div>
+                  </a>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
+        <p class="btn-see-more"><%= link_to "もっと見る", worships_path, class: "btn btn-secondary", role: "button" %></p>
       </div>
-      <p class="btn-see-more"><%= link_to "もっと見る", worships_path, class: "btn btn-secondary", role: "button" %></p>
     </div>
   </div>
   <!-- ご朱印帳 一覧 -->
@@ -43,7 +45,7 @@
         <% if user_signed_in? %>
           <% @seals.each do |seal| %>
             <%# <div class="col-4 col-md-3 col-lg-2"> %>
-            <div class="col-md-3">
+            <div class="col-md-3 col-6">
               <div class="card mb-4 shadow-sm">
                 <a href="/seals/<%= seal.id %>">
                   <% if seal.images? %>

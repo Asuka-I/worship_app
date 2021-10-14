@@ -22,7 +22,7 @@
 
 .jumbotron .container h1 {
   color: white;
-  font-family: sans-serif;
+  font-family: aoyagireishosimo2_O;
 }
 
 .jumbotron .container {
@@ -32,5 +32,11 @@
 }
 
 .btn-see-more {
+  font-family: aoyagireishosimo2_O;
   text-align: center;
+}
+
+.bg-light .container {
+  background-image: image-url('top_contents_bg.jpg');
+  background-position: center;
 }
