@@ -143,3 +143,9 @@ footer {
   right: 50px;
   }
 }
+
+@media screen and (max-width: 576px) {
+  #page_top{
+  right: 0px;
+  }
+}
