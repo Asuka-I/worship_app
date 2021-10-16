@@ -1,0 +1,68 @@
+.jumbotron {
+  background-image: image-url('top_image2.jpg');
+  background-position: center;
+  background-size: cover;
+  padding-top: var(--jumbotron-padding-y);
+  padding-bottom: var(--jumbotron-padding-y);
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: calc(var(--jumbotron-padding-y) * 6);
+    padding-bottom: calc(var(--jumbotron-padding-y) * 6);
+    height: 50vh;
+  }
+}
+
+.jumbotron p:last-child {
+  color: white !important;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.jumbotron .container h1 {
+  color: white;
+  font-family: aoyagireishosimo2_O;
+}
+
+.jumbotron .container {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+/***** もっと見るボタン *****/
+.btn-see-more {
+  font-family: aoyagireishosimo2_O;
+  text-align: center;
+}
+
+.btn-see-more a {
+  background-color: #ba2636;
+}
+
+.btn-primary {
+  background: #ba2636 !important;
+  border: 1px solid #ba2636 !important;
+  color: #fff !important;
+}
+
+.btn-primary:hover, .btn-primary:focus, 
+.btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
+.btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary, 
+.open > .dropdown-toggle.btn-primary:hover,
+.open > .dropdown-toggle.btn-primary:focus, 
+.open > .dropdown-toggle.btn-primary.focus,
+.btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
+    background: darkred !important; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    color: #fff !important; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+}
+
+/***** コンテンツ 背景 *****/
+.bg-light .container {
+  background-image: image-url('top_contents_bg.jpg');
+  background-position: center;
+}
