@@ -9,11 +9,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   # デフォルト画像の表示
-  def default_url(*args)
-  #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-    "default.jpg"
-    "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  def default_url(*_args)
+    #   # For Rails 3.1+ asset pipeline compatibility:
+    #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+    "/images/fallback/#{[version_name, 'default.jpg'].compact.join('_')}"
   end
 
   # サムネイル画像を表示
