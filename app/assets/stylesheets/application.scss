@@ -56,37 +56,37 @@ h2{
 
 /***** ドロップダウンリストのスタイル *****/
 @media screen and (min-width: 992px) {
-  .navbar {
-    padding-top: 0px;
-    padding-bottom: 0px;
-  }
+.navbar {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
 
-  .navbar .nav-item {
-    padding: 0.5rem 0.5rem;
-    margin: 0 0.25rem;
-  }
+.navbar .nav-item {
+  padding: 0.5rem 0.5rem;
+  margin: 0 0.25rem;
+}
 
-  .navbar {
-    position: static;
-  }
+.navbar {
+  position: static;
+}
 
-  .navbar .dropdown-menu {
-    top: 45px;
-    display: block;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.3s linear;
-  }
+.navbar .dropdown-menu {
+  top: 45px;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s linear;
+}
 
-  .navbar .dropdown:hover .dropdown-menu,
-  .navbar .dropdown .dropdown-menu:hover {
-    display: block;
-    visibility: visible;
-    opacity: 1;
-    transition: visibility 0s, opacity 0.3s linear;
-  }
+.navbar .dropdown:hover .dropdown-menu,
+.navbar .dropdown .dropdown-menu:hover {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.3s linear;
+}
 
-  .navbar .dropdown-menu {
+.navbar .dropdown-menu {
     border: 1px solid rgba(0, 0, 0, 0.15);
     background-color: #fff;
   }
@@ -104,5 +104,41 @@ footer {
   padding-bottom: 0.5rem;
 }
 
-footer p {
+/***** 戻るボタン *****/
+#page_top{
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  right: 100px;
+  bottom: 20px;
+  background: #ba2636;
+  opacity: 0.6;
+}
+
+#page_top a{
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 40px;
+  text-decoration: none;
+}
+
+#page_top a::after{
+  content: '▲';
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+  #page_top{
+  right: 50px;
+  }
 }
