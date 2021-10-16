@@ -42,13 +42,9 @@
 }
 
 .btn-primary {
-  background: #ba2636 !important; //ボタンの背景色
-  color: #fff !important; //ボタンのテキストの色
-}
-
-.btn-primary.outline {
-    border: 3px solid #ba2636; //アウトラインのみのボタンの線の色
-    color: #fff; //アウトラインのみのボタンのテキストの色
+  background: #ba2636 !important;
+  border: 1px solid #ba2636 !important;
+  color: #fff !important;
 }
 
 .btn-primary:hover, .btn-primary:focus, 
