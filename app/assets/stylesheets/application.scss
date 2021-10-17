@@ -154,12 +154,29 @@ footer {
 
 /***** ページネーション *****/
 .pagination>li>a {
-  color: #696969;
+  background-color: #ba2636;
+  color: #fff;
 }
+
+.pagination>.active>a {     
+  background-color: #fff;
+  border-color: #ba2636;
+  border-radius: 15px;
+  color: #ba2636;
+}
+
 .page-item.active .page-link {
-  background: #FAB95B;
-  border-color: #FAB95B;
+  background-color: #fff;
+  border-color: #ba2636;
+  color: #ba2636;
 }
+
+.pagination>li>a:hover {
+  background-color: darkred;        
+  border-radius: 15px;
+  color: #fff;
+}
+
 .pagination {
   justify-content: center;
   padding: 30px;
