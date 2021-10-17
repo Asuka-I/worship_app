@@ -19,6 +19,6 @@ class Prefecture < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  has_many :worships
-  has_many :seals
+  has_many :worships, dependent: :destroy
+  has_many :seals, dependent: :destroy
 end
