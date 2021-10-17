@@ -94,7 +94,7 @@ h2{
   }
 }
 
-  .flex-column {
+.flex-column {
   flex-direction: column !important;
   width: max-content;
 }
@@ -153,12 +153,12 @@ footer {
 }
 
 /***** ページネーション *****/
-.pagination>li>a {
+.pagination li a {
   background-color: #ba2636;
   color: #fff;
 }
 
-.pagination>.active>a {     
+.pagination .active a {     
   background-color: #fff;
   border-color: #ba2636;
   border-radius: 15px;
@@ -171,7 +171,7 @@ footer {
   color: #ba2636;
 }
 
-.pagination>li>a:hover {
+.pagination li a:hover {
   background-color: darkred;        
   border-radius: 15px;
   color: #fff;
