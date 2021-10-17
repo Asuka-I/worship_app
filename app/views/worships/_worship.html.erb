@@ -15,8 +15,8 @@
                     <%= image_tag "default.jpg", class: 'card-img-top' %>
                   <% end %>
                   <div class="card-body">
-                    <p class="card-text"><%= worship.category %> | <%= worship.place %></p>
-                    <p class="card-text"><%= worship.title %></p>
+                    <p class="card-text"><%= worship.category %> | <%= worship.prefecture.name %> </p>
+                    <p class="card-text"><%= worship.place %></p>
                     <p class="card-text"><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
                   </div>
                 </a>

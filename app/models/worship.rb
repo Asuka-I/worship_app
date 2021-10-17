@@ -11,4 +11,7 @@ class Worship < ApplicationRecord
   def liked_worship_by?(user)
     worship_likes.any? { |worship_like| worship_like.user_id == user.id }
   end
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 end
