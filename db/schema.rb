@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_03_093909) do
+ActiveRecord::Schema.define(version: 2021_10_17_083010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 2021_10_03_093909) do
 
   create_table "seals", force: :cascade do |t|
     t.string "category", null: false
-    t.string "title"
-    t.string "place"
+    t.integer "prefecture_id", null: false
+    t.string "place", null: false
     t.date "date", null: false
     t.json "images"
     t.integer "likes_count", default: 0
@@ -84,11 +84,11 @@ ActiveRecord::Schema.define(version: 2021_10_03_093909) do
   end
 
   create_table "worships", force: :cascade do |t|
-    t.string "category"
-    t.string "title"
-    t.string "place"
-    t.text "content"
-    t.date "date"
+    t.string "category", null: false
+    t.integer "prefecture_id", null: false
+    t.string "place", null: false
+    t.text "content", null: false
+    t.date "date", null: false
     t.json "images"
     t.float "rating"
     t.integer "likes_count", default: 0

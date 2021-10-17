@@ -10,4 +10,7 @@ class Seal < ApplicationRecord
   def liked_seal_by?(user)
     seal_likes.any? { |seal_like| seal_like.user_id == user.id }
   end
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 end

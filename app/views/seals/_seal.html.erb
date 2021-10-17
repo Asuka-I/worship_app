@@ -14,8 +14,8 @@
                   <p><%= image_tag "default.jpg", class: 'card-img-top' %></p>
                 <% end %>
                 <div class="card-body">
-                  <p class="card-text"><%= seal.category %> | <%= seal.place %></p>
-                  <p class="card-text"><%= seal.title %></p>
+                  <p class="card-text"><%= seal.category %> | <%= seal.prefecture.name %></p>
+                  <p class="card-text"><%= seal.place %></p>
                   <p class="card-text"><%= seal.user_name.present? ? seal.user_name : "会員No.#{seal.user.id}" %></p>
                 </div>
               </a>
