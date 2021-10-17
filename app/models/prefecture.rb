@@ -20,4 +20,5 @@ class Prefecture < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :worships
+  has_many :seals
 end
