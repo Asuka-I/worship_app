@@ -2,7 +2,7 @@ class WorshipsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_worship, only: %i[edit update destroy]
 
-  PER_PAGE = 1
+  PER_PAGE = 16
 
   def index
     @worships = Worship.all.includes(:user, :worship_likes).order(created_at: :desc).page(params[:page]).per(PER_PAGE)

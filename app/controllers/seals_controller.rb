@@ -2,7 +2,7 @@ class SealsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_seal, only: %i[edit update destroy]
 
-  PER_PAGE = 1
+  PER_PAGE = 16
 
   def index
     @seals = Seal.all.includes(:user, :seal_likes).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
