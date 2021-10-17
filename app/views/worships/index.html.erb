@@ -10,8 +10,8 @@
                 <% if worship.images? %>
                   <p><%= image_tag worship.images[0].to_s, class: 'card-img-top' %></p>
                 <% end %>
-                <p><%= worship.category %> | <%= worship.place %></p>
-                <p><%= worship.prefecture.name %></p>
+                <p><%= worship.category %> | <%= worship.prefecture.name %></p>
+                <p><%= worship.place %></p>
                 <p><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
                 <p id="worship-<%= worship.id %>">
                   <% if worship.liked_worship_by?(current_user) %>
