@@ -17,6 +17,14 @@ class User < ApplicationRecord
   def followed_by?(user)
     passive_relationships.find_by(following_id: user.id).present?
   end
+
+  # ゲストログイン
+  def self.guest
+    find_or_create_by!(email: "guest@example.com") do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "ゲスト"
+    end
+  end
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
