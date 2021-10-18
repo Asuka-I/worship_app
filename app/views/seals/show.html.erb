@@ -13,18 +13,20 @@
 <% else %>
   <%= link_to "会員No.#{@seal.user_id}", user_path(@seal.user_id) %>
 <% end %>
-<p id="seal-<%= @seal.id %>">
-  <% if @seal.liked_seal_by?(current_user) %>
-    <%= render "like", seal: @seal %>
-  <% else %>
-    <%= render "dislike", seal: @seal %>
-  <% end %>
-</p>
-<% if current_user.id == @seal.user_id %>
-  <p>
-    <%= link_to "編集", edit_seal_path(@seal) %>
-    <%= link_to "削除", seal_path(@seal), method: :delete, data: { confirm: "削除しますか?" } %>
+<% if user_signed_in? %>
+  <p id="seal-<%= @seal.id %>">
+    <% if @seal.liked_seal_by?(current_user) %>
+      <%= render "like", seal: @seal %>
+    <% else %>
+      <%= render "dislike", seal: @seal %>
+    <% end %>
   </p>
+  <% if current_user.id == @seal.user_id %>
+    <p>
+      <%= link_to "編集", edit_seal_path(@seal) %>
+      <%= link_to "削除", seal_path(@seal), method: :delete, data: { confirm: "削除しますか?" } %>
+    </p>
+  <% end %>
 <% end %>
 <hr>
 <p><%= link_to "投稿一覧へ", seals_path %></p>

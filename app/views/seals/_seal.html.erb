@@ -2,26 +2,24 @@
   <div class="container">
     <h2>ご朱印帳一覧</h2>
     <div class="row">
-      <% if user_signed_in? %>
-        <% @seals.each do |seal| %>
-          <%# <div class="col-4 col-md-3 col-lg-2"> %>
-          <div class="col-md-3 col-6">
-            <div class="card mb-4 shadow-sm">
-              <a href="/seals/<%= seal.id %>">
-                <% if seal.images? %>
-                  <p><%= image_tag seal.images[0].to_s, class: 'card-img-top' %></p>
-                <% else %>
-                  <p><%= image_tag "default.jpg", class: 'card-img-top' %></p>
-                <% end %>
-                <div class="card-body">
-                  <p class="card-text"><%= seal.category %> | <%= seal.prefecture.name %></p>
-                  <p class="card-text"><%= seal.place %></p>
-                  <p class="card-text"><%= seal.user_name.present? ? seal.user_name : "会員No.#{seal.user.id}" %></p>
-                </div>
-              </a>
-            </div>
+      <% @seals.each do |seal| %>
+        <%# <div class="col-4 col-md-3 col-lg-2"> %>
+        <div class="col-md-3 col-6">
+          <div class="card mb-4 shadow-sm">
+            <a href="/seals/<%= seal.id %>">
+              <% if seal.images? %>
+                <p><%= image_tag seal.images[0].to_s, class: 'card-img-top' %></p>
+              <% else %>
+                <p><%= image_tag "default.jpg", class: 'card-img-top' %></p>
+              <% end %>
+              <div class="card-body">
+                <p class="card-text"><%= seal.category %> | <%= seal.prefecture.name %></p>
+                <p class="card-text"><%= seal.place %></p>
+                <p class="card-text"><%= seal.user_name.present? ? seal.user_name : "会員No.#{seal.user.id}" %></p>
+              </div>
+            </a>
           </div>
-        <% end %>
+        </div>
       <% end %>
     </div>
     <p class="btn-see-more"><%= link_to "もっと見る", seals_path, class: "btn btn-primary", role: "button" %></p>
