@@ -20,19 +20,19 @@ class WorshipsController < ApplicationController
 
   def create
     worship = current_user.worships.create!(worship_params)
-    redirect_to worship
+    redirect_to worship, notice: "投稿しました"
   end
 
   def edit; end
 
   def update
     @worship.update!(worship_params)
-    redirect_to @worship
+    redirect_to @worship, notice: "更新しました"
   end
 
   def destroy
     @worship.destroy!
-    redirect_to @worship
+    redirect_to @worship, alert: "削除しました"
   end
 
   private
