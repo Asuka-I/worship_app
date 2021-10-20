@@ -18,19 +18,19 @@ class SealsController < ApplicationController
 
   def create
     seal = current_user.seals.create!(seal_params)
-    redirect_to seal
+    redirect_to seal, notice: "投稿しました"
   end
 
   def edit; end
 
   def update
     @seal.update!(seal_params)
-    redirect_to @seal
+    redirect_to @seal, notice: "更新しました"
   end
 
   def destroy
     @seal.destroy!
-    redirect_to @seal
+    redirect_to @seal, alert: "削除しました"
   end
 
   private
