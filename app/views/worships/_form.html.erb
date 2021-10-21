@@ -1,13 +1,13 @@
 <%= form_with model: @worship, local: true do |f| %>
-  <p><%= f.label :category, "寺社を選択" %></p>
+  <p><%= f.label :category %></p>
   <p><%= f.select :category, [["神社", "神社"],["寺", "寺"]], include_blank: "選択して下さい" %></p>
-  <p><%= f.label :prefecture_id, "都道府県" %></p>
+  <p><%= f.label :prefecture_id %></p>
   <p><%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"}, {class: ""} %></p>
-  <p><%= f.label :place, "場所" %></p>
+  <p><%= f.label :place %></p>
   <p><%= f.text_field :place %></p>
-  <p><%= f.label :date, "参拝日" %></p>
+  <p><%= f.label :date %></p>
   <p><%= f.date_field :date %></p>
-  <p><%= f.label :content, "感想など" %></p>
+  <p><%= f.label :content %></p>
   <p><%= f.text_area :content %></p>
   <p>
     <%= f.file_field :images,  multiple: true , accept: "image/png,image/jpeg,image/gif" %>

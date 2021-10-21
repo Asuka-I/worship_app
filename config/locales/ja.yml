@@ -9,15 +9,15 @@ ja:
       comment: コメント
     attributes:
       worship:
-        category: カテゴリー
-        title: タイトル
-        place: 場所
+        category: 寺社を選択
+        prefecture_id: 都道府県
+        place: 寺社名
         content: 感想
         date: 日付
       seal:
-        category: カテゴリー
-        title: タイトル
-        place: 場所
+        category: 寺社を選択
+        prefecture_id: 都道府県
+        place: 寺社名
       comment:
         content: コメント
   views:
