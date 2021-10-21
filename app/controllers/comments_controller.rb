@@ -1,7 +1,13 @@
 class CommentsController < ApplicationController
   def create
-    current_user.comments.create(comment_params)
-    redirect_back(fallback_location: root_path)
+    @worship = Worship.find(params[:worship_id])
+    @comment = current_user.comments.create!(comment_params)
+    if @comment.save
+      redirect_back(fallback_location: root_path)
+    else
+      flash.now[:alert] = "コメントに失敗しました"
+      render :new
+    end
   end
 
   private
