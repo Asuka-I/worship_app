@@ -17,7 +17,7 @@ class SealsController < ApplicationController
   end
 
   def create
-    @seal = current_user.seals.create!(seal_params)
+    @seal = current_user.seals.create(seal_params)
     if @seal.save
       redirect_to @seal, notice: "投稿しました"
     else
@@ -29,7 +29,7 @@ class SealsController < ApplicationController
   def edit; end
 
   def update
-    if @seal.update!(seal_params)
+    if @seal.update(seal_params)
       redirect_to @seal, notice: "更新しました"
     else
       flash.now[:alert] = "更新に失敗しました"

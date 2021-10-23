@@ -19,7 +19,7 @@ class WorshipsController < ApplicationController
   end
 
   def create
-    @worship = current_user.worships.create!(worship_params)
+    @worship = current_user.worships.create(worship_params)
     if @worship.save
       redirect_to @worship, notice: "投稿しました"
     else
@@ -31,7 +31,7 @@ class WorshipsController < ApplicationController
   def edit; end
 
   def update
-    if @worship.update!(worship_params)
+    if @worship.update(worship_params)
       redirect_to @worship, notice: "更新しました"
     else
       flash.now[:alert] = "更新に失敗しました"

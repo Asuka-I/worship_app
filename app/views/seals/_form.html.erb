@@ -1,4 +1,5 @@
 <%= form_with model: @seal, local: true do |f| %>
+  <%= render "layouts/error_messages", model: f.object %>
   <p><%= f.label :category %></p>
   <p><%= f.select :category, [["神社", "神社"],["寺", "寺"]], include_blank: "選択して下さい" %></p>
   <p><%= f.label :prefecture_id %></p>
