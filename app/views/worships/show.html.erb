@@ -31,7 +31,8 @@
   <hr>
   <% if current_user %>
     <%= form_with(model: [@worship, @comment], local: true) do |f| %>
-      <%= f.text_field :content %>
+      <%= render "layouts/error_messages", model: f.object %>
+      <%= f.text_field :content, required: true %>
       <%= f.submit 'コメントする' %>
     <% end %>
   <% end %>

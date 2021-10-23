@@ -4,6 +4,12 @@ class Worship < ApplicationRecord
   has_many :worship_likes, dependent: :destroy
   has_many :worship_liked_users, through: :worship_likes, source: :user
 
+  validates :category, presence: true
+  validates :prefecture_id, presence: true
+  validates :place, presence: true, length: { maximum: 10 }
+  validates :content, presence: true
+  validates :date, presence: true
+
   mount_uploaders :images, ImageUploader
 
   delegate :name, to: :user, prefix: true, allow_nil: true

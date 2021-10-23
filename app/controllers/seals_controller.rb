@@ -17,15 +17,24 @@ class SealsController < ApplicationController
   end
 
   def create
-    seal = current_user.seals.create!(seal_params)
-    redirect_to seal, notice: "投稿しました"
+    @seal = current_user.seals.create(seal_params)
+    if @seal.save
+      redirect_to @seal, notice: "投稿しました"
+    else
+      flash.now[:alert] = "投稿に失敗しました"
+      render :new
+    end
   end
 
   def edit; end
 
   def update
-    @seal.update!(seal_params)
-    redirect_to @seal, notice: "更新しました"
+    if @seal.update(seal_params)
+      redirect_to @seal, notice: "更新しました"
+    else
+      flash.now[:alert] = "更新に失敗しました"
+      render :new
+    end
   end
 
   def destroy

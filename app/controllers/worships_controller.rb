@@ -19,15 +19,24 @@ class WorshipsController < ApplicationController
   end
 
   def create
-    worship = current_user.worships.create!(worship_params)
-    redirect_to worship, notice: "投稿しました"
+    @worship = current_user.worships.create(worship_params)
+    if @worship.save
+      redirect_to @worship, notice: "投稿しました"
+    else
+      flash.now[:alert] = "投稿に失敗しました"
+      render :new
+    end
   end
 
   def edit; end
 
   def update
-    @worship.update!(worship_params)
-    redirect_to @worship, notice: "更新しました"
+    if @worship.update(worship_params)
+      redirect_to @worship, notice: "更新しました"
+    else
+      flash.now[:alert] = "更新に失敗しました"
+      render :edit
+    end
   end
 
   def destroy
