@@ -194,3 +194,12 @@ footer {
 .alert {
   margin-bottom: 0px;
 }
+
+/***** エラー *****/
+div.field_with_errors {
+  display: contents;
+}
+
+input {
+    border: 2px solid red;
+  }
