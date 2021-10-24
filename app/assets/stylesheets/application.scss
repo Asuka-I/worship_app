@@ -203,3 +203,17 @@ div.field_with_errors {
 .alert-warning {
   width: 500px;
 }
+
+/***** いいねボタン *****/
+.heart{
+  color: #E0548E;
+}
+
+.heart:hover{
+  color: red;
+  text-decoration: none;
+}
+
+.likes-button {
+  text-align: right;
+}

@@ -1,33 +1,66 @@
-// 参拝 御朱印 カードデザイン
+/***** 共通　カードデザイン *****/
 .card {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.8) !important;
   border-radius: 5px;
   box-shadow: 0 2px 5px #ccc;
 }
+
+.card-body {
+  padding: 18px 1.25rem !important;
+}
+
 .card-img {
   border-radius: 5px 5px 0 0;
   max-width: 100%;
   height: auto;
 }
+
 .card-img-top {
   height: 195px;
   width: 100%;
 }
+
+@media screen and (max-width: 992px) {
+  .card-img-top {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .card-img-top {
+    height: 150px;
+    width: 100%;
+  }
+}
+
 .card-text {
   color: #777;
   font-size: 14px;
   line-height: 1;
 }
+
 .card-link {
   text-align: center;
   border-top: 1px solid #eee;
   padding: 20px;
 }
+
 .card-link a {
   text-decoration: none;
-  color: #0bd;
+  color: #ba2636;
   margin: 0 10px;
 }
+
 .card-link a:hover {
-  color: #0090aa;
+  color: #ba2636;
+}
+
+/***** 参拝投稿 背景 *****/
+.worship-index {
+  background-color: #feffff;
+  background-image: image-url('bg_ume.jpg');
+  background-size: 50%;
+  background-position: right bottom;
+  background-repeat: no-repeat;
 }
