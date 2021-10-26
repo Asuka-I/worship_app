@@ -1,3 +1,5 @@
 <%# 「いいね」していない（クリックすると「いいね！」にする） %>
-<%= link_to "☆", worship_worship_likes_path(worship), method: :post, remote: true %>
+<%= link_to worship_worship_likes_path(worship), {method: :post, remote: true, class: "dislike-heart"} do %>
+  <i class="far fa-heart"></i>
+<% end %>
 <%= worship.likes_count %>

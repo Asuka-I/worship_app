@@ -16,6 +16,10 @@
 
 @import "bootstrap/scss/bootstrap";
 
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/regular";
+
 /***** 共通  *****/
 @font-face {
   font-family: 'aoyagireishosimo2_O';
@@ -202,4 +206,23 @@ div.field_with_errors {
 
 .alert-warning {
   width: 500px;
+}
+
+/***** いいねボタン *****/
+.heart{
+  color: #E0548E;
+}
+
+.dislike-heart{
+  color: #E0548E;
+}
+
+.heart:hover,
+.dislike-heart:hover{
+  color: red;
+  text-decoration: none;
+}
+
+.likes-button {
+  text-align: right;
 }
