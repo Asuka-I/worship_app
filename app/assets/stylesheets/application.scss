@@ -204,10 +204,17 @@ div.field_with_errors {
   display: contents;
 }
 
-.alert-warning {
-  width: 500px;
+// .alert-warning,.alert-alert {
+//   width: 500px;
+// }
+
+.alert-notice {
+  @extend .alert-info;
 }
 
+.alert-alert {
+  @extend .alert-danger;
+}
 
 /***** いいねボタン *****/
 .heart{
