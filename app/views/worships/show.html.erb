@@ -1,4 +1,36 @@
 <h1>参拝記事 詳細</h1>
+<%# 投稿画像 表示 %>
+<% if @worship.images? %>
+  <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel" data-interval="2000">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <% @worship.images.drop(1).count.times do |index| %>
+        <li data-target="#carouselExampleIndicators" data-slide-to="#{index}"></li>
+      <% end %>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <% @worship.images.first(1).each do |image| %>
+          <%= image_tag image.to_s, class: "carousel_image d-block w-100" %>
+        <% end %>
+      </div>
+      <% @worship.images.drop(1).each do |image| %>
+        <div class="carousel-item ">
+          <%= image_tag image.to_s, class: "carousel_image d-block w-100" %>
+        </div>
+      <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </a>
+    <span class="sr-only">Next</span>
+  </div>
+<% end %>
+<%# -------------- %>
 <p><%= @worship.category %></p>
 <p><%= @worship.prefecture.name %></p>
 <p>場所 : <%= @worship.place %></p>
@@ -9,11 +41,7 @@
 <% else %>
   <%= link_to "会員No.#{@worship.user_id}", user_path(@worship.user_id) %>
 <% end %>
-<% if @worship.images? %>
-  <% @worship.images.each do |image|  %>
-    <%= image_tag image.to_s %>
-  <% end %>
-<% end %>
+
 <% if user_signed_in? %>
   <p id="worship-<%= @worship.id %>">
     <% if @worship.liked_worship_by?(current_user) %>
