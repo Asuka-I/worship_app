@@ -1,11 +1,45 @@
-.carousel{
-  width: 500px;
-}
-.carousel-item .img-fluid {
-  width:100%;
-  height:auto;
-}
+/***** 投稿画像 カルーセル *****/
+.wrapper {
+  max-width: 500px;
 
-.carousel-item{
-  height: auto;
+  .thumbnail { 
+    max-width: 500px; 
+    margin: 0 auto 5px; 
+    padding: 0;
+  }
+
+  .thumbnail img,.thumbnail-nav img { 
+    width: 100%;
+  }
+
+  .thumbnail-thumb { 
+    max-width: 500px; 
+    margin: 0 auto;
+  }
+
+  .thumbnail-thumb li { 
+    margin: 5px;
+  }
+
+  .thumbnial-thumb .slick-next {
+    right: 20px;
+    z-index: 100;
+  }
+
+  .thumbnail-thumb .slick-prev {
+    left: 15px;
+    z-index: 100;
+  }
+
+  .thumbnail-thumb .slick-current {
+    opacity: 0.5;
+  }
+
+  .thumbnail-thumb div div div {
+    cursor: pointer;
+  }
+
+  .thumbnail-thumb .slick-track {
+    transform: unset !important;
+  }
 }
