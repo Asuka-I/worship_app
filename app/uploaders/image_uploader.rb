@@ -31,13 +31,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   process resize_to_fill: [400, 400]
 
   # ファイル形式の制限
-  def extension_allowlist
-    %w[jpg jpeg gif png]
+  def extension_whitelist
+    %w[jpg jpeg gif png heic]
   end
 
   # ファイルサイズの上限
   def size_range
-    0..(10.megabytes)
+    1..10.megabytes
   end
 
   # jpg に変換

@@ -12,6 +12,7 @@ $(document).ready(function(){
     slidesToShow: 4, //表示するスライドの数
     focusOnSelect: true, //フォーカスの有効化
     asNavFor: '.thumbnail', //thumbnailクラスのナビゲーション
+    arrows: false,
   });
 
 });

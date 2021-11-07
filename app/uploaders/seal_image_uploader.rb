@@ -9,17 +9,16 @@ class SealImageUploader < CarrierWave::Uploader::Base
   end
 
   # デフォルト画像の表示
-  # def default_url(*args)
-  #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  #
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
+  def default_url(*_args)
+    #   # For Rails 3.1+ asset pipeline compatibility:
+    #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+    "/images/fallback/#{[version_name, 'default.jpg'].compact.join('_')}"
+  end
 
   # サムネイル画像を表示
-  # version :thumb do
-  #   process resize_to_fit: [300, 180]
-  # end
+  version :thumb do
+    process resize_to_fit: [300, 180]
+  end
 
   # 画像サイズ
   # 画像が大きい場合のみリサイズ
@@ -29,16 +28,16 @@ class SealImageUploader < CarrierWave::Uploader::Base
   # process resize_to_fit: [1000, 1000]
 
   # 指定サイズで切り抜く
-  process resize_to_fill: [200, 200, "center"]
+  process resize_to_fill: [400, 400]
 
   # ファイル形式の制限
-  def extension_allowlist
-    %w[jpg jpeg gif png]
+  def extension_whitelist
+    %w[jpg jpeg gif png heic]
   end
 
   # ファイルサイズの上限
   def size_range
-    0..(10.megabytes)
+    1..10.megabytes
   end
 
   # jpg に変換
