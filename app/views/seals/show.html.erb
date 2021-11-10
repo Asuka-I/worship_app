@@ -1,9 +1,20 @@
 <h1>御朱印帳 詳細</h1>
+<%# 投稿画像 表示 %>
 <% if @seal.images? %>
-  <% @seal.images.each do |image|  %>
-    <%= image_tag image.to_s %>
-  <% end %>
+  <div class="wrapper">
+    <div class="thumbnail">
+      <% @seal.images.each do |image|  %>
+        <div><%= image_tag image.to_s %></div>
+      <% end %>
+    </div> 
+    <div class="thumbnail-thumb">
+      <% @seal.images.each do |image|  %>
+        <%= image_tag image.to_s %>
+      <% end %>
+    </div> 
+  </div> 
 <% end %>
+<%# -------------- %>
 <p><%= @seal.category %></p>
 <p><%= @seal.prefecture.name %></p>
 <p>場所 : <%= @seal.place %></p>

@@ -1,11 +1,18 @@
 <main role="main">
-  <section class="jumbotron text-center">
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+	<div class="carousel-inner bgCarousel">
+		<div class="carousel-item bgCarousel__item active"></div>
+		<div class="carousel-item bgCarousel__item"></div>
+		<div class="carousel-item bgCarousel__item"></div>
     <div class="container">
-      <h1>神仏集合</h1>
-      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-      <p><%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post, class:"btn btn-primary btn-lg guest", role:"button"%></p>
+      <div class="carousel-caption">
+        <h1>神仏集合</h1>
+        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+        <p><%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post, class:"btn btn-primary btn-lg guest", role:"button"%></p>
+      </div>
     </div>
-  </section>
+	</div>
+</div>
   <!-- 参拝記事 一覧 -->
   <%= render "worships/worship" %>
   <!-- ご朱印帳 一覧 -->

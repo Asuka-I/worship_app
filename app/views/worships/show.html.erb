@@ -1,4 +1,20 @@
 <h1>参拝記事 詳細</h1>
+<%# 投稿画像 表示 %>
+<% if @worship.images? %>
+  <div class="wrapper">
+    <div class="thumbnail">
+      <% @worship.images.each do |image|  %>
+        <div><%= image_tag image.to_s %></div>
+      <% end %>
+    </div> 
+    <div class="thumbnail-thumb">
+      <% @worship.images.each do |image|  %>
+        <%= image_tag image.to_s %>
+      <% end %>
+    </div> 
+  </div> 
+<% end %>
+<%# -------------- %>
 <p><%= @worship.category %></p>
 <p><%= @worship.prefecture.name %></p>
 <p>場所 : <%= @worship.place %></p>
@@ -9,11 +25,7 @@
 <% else %>
   <%= link_to "会員No.#{@worship.user_id}", user_path(@worship.user_id) %>
 <% end %>
-<% if @worship.images? %>
-  <% @worship.images.each do |image|  %>
-    <%= image_tag image.to_s %>
-  <% end %>
-<% end %>
+
 <% if user_signed_in? %>
   <p id="worship-<%= @worship.id %>">
     <% if @worship.liked_worship_by?(current_user) %>
