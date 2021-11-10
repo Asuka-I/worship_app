@@ -1,4 +1,5 @@
-$(document).ready(function(){
+document.addEventListener("turbolinks:load"
+, function () {
 
   $('.thumbnail').slick({
     autoplay: true, //自動再生
@@ -12,7 +13,7 @@ $(document).ready(function(){
     slidesToShow: 4, //表示するスライドの数
     focusOnSelect: true, //フォーカスの有効化
     asNavFor: '.thumbnail', //thumbnailクラスのナビゲーション
-    arrows: false,
+    arrows: false, //矢印を非表示
   });
 
 });
