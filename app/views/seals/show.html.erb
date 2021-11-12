@@ -2,10 +2,14 @@
 <%# 投稿画像 表示 %>
 <% if @seal.images? %>
   <div class="wrapper">
-    <div class="thumbnail">
-      <% @seal.images.each do |image|  %>
-        <div><%= image_tag image.to_s %></div>
-      <% end %>
+    <div class="course-wrapper">
+      <div class="thumbnail">
+        <% @seal.images.each do |image|  %>
+          <div class="course-item">
+            <%= image_tag image.to_s, class:"course-item-img img" %>
+          </div>
+        <% end %>
+      </div> 
     </div> 
     <div class="thumbnail-thumb">
       <% @seal.images.each do |image|  %>
@@ -13,6 +17,7 @@
       <% end %>
     </div> 
   </div> 
+  <div id="grayDisplay"></div>
 <% end %>
 <%# -------------- %>
 <p><%= @seal.category %></p>
