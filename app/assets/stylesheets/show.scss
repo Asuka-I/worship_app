@@ -46,24 +46,8 @@
 }
 
 /***** 投稿画像 モーダル *****/
-.course {
-  background-color: #e3fcf3;
-}
-
-.course-wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
-.course-item {
-  width: 30%;
-}
-
 .course-item img {
   cursor: pointer;
-}
-.section {
-  padding: 60px;
 }
 
 #grayDisplay {
@@ -72,8 +56,6 @@
   top: 0;
   left: 0;
   width: 100%;
-  /* コンテンツ全てに対して固定的に 1160pxとか指定されているときの対応で、
-  ダサいが!importantつける */
   max-width: 100% !important;
   height: 100%;
   background: rgba(0, 0, 0, 0.8);

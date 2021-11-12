@@ -11,6 +11,7 @@ import Turbolinks from 'turbolinks';
 import * as ActiveStorage from '@rails/activestorage';
 import 'jquery';
 import './slick.js';
+import './modal.js';
 import 'channels';
 import 'bootstrap/dist/js/bootstrap';
 import "@fortawesome/fontawesome-free/js/all";
