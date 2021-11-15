@@ -37,11 +37,6 @@
   padding-right: 8px;
 }
 
-.current-user-button {
-  width: 450px;
-  text-align: right;
-}
-
 .edit-button,
 .delete-button {
   padding: 0.2rem 0.45rem !important;
@@ -52,6 +47,17 @@
   font-size: 13px !important;
 }
 
+@media screen and (min-width: 575px) {
+  .detail-wrapper {
+  padding-left: 45px !important;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .detail-wrapper {
+  padding-left: 0 !important;
+  }
+}
 /***** 投稿画像 カルーセル *****/
 .photos-wrapper {
   width: auto;
