@@ -1,4 +1,4 @@
-/***** 共通　カードデザイン *****/
+/***** 共通 カードデザイン *****/
 .card {
   background: rgba(255, 255, 255, 0.8) !important;
   border-radius: 5px;
@@ -54,6 +54,21 @@
 
 .card-link a:hover {
   color: #ba2636;
+}
+
+/***** 共通 アイコン *****/
+.worships-icon {
+  margin-top: -3px;
+}
+
+.shrine-icon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.temple-icon {
+  height: 0.9rem;
+  width: 0.9rem;
 }
 
 /***** 参拝投稿 背景 *****/
