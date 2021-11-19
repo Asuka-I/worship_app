@@ -65,18 +65,18 @@
               <% @seal.images.each do |image|  %>
                 <div class="course-item">
                   <%= image_tag image.to_s, class:"course-item-img img" %>
-                  <p class="caption">
+                  <div class="caption">
                     <div class="photo-user">
-                      <p>
+                      <p class="photo-user-name">
                         <% if @seal.user_name.present? %>
                           <%= link_to "#{@seal.user_name}", user_path(@seal.user_id) %>
                         <% else %>
                           <%= link_to "ななし#{@seal.user_id}", user_path(@seal.user_id) %>
                         <% end %>
                       </p>
-                      <p>参拝日 : <%= @seal.date %></p>
+                      <p class="worship-date">参拝日 : <%= @seal.date %></p>
                     </div>
-                  </p>
+                  </div>
                 </div>
               <% end %>
             </div>

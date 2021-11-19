@@ -49,13 +49,13 @@
 
 @media screen and (min-width: 575px) {
   .detail-wrapper {
-  padding-left: 45px !important;
+    padding-left: 45px !important;
   }
 }
 
 @media screen and (max-width: 575px) {
   .detail-wrapper {
-  padding-left: 0 !important;
+    padding-left: 0 !important;
   }
 }
 /***** 投稿画像 カルーセル *****/
@@ -73,19 +73,24 @@
     padding: 0;
   }
 
-  .photo-user {
+  .caption {
     width: 100%;
     position: absolute;
     padding: 20px;
     background: rgba(0, 0, 0, 0.6);
-    color: white;
+    color: rgb(233, 233, 233);
     font-size: 15px;
-    bottom: 16px;
+    bottom: 0px;
   }
 
   .photo-user p {
-    display: inline-block;
     margin-bottom: 0;
+    display: inline;
+  }
+
+  .worship-date {
+    color: fff;
+    float: right;
   }
 
   .thumbnail img,
@@ -102,6 +107,7 @@
     margin: 5px;
   }
 
+  /***** 投稿画像 サムネイル *****/
   .thumbnial-thumb .slick-next {
     right: 20px;
     z-index: 100;
