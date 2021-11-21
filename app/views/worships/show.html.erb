@@ -56,25 +56,39 @@
     </div>
     <%# -------------- %>
     <%# 投稿画像 表示 %>
-    <% if @worship.images? %>
-      <div class="wrapper">
-        <div class="course-wrapper">
-          <div class="thumbnail">
+    <div class="col-sm-10 col-md-10 col-lg-6 order-lg-1">
+      <% if @worship.images? %>
+        <div class="photos-wrapper">
+          <div class="course-wrapper">
+            <div class="thumbnail">
+              <% @worship.images.each do |image|  %>
+                <div class="course-item">
+                  <%= image_tag image.to_s, class:"course-item-img img" %>
+                  <div class="caption">
+                    <div class="photo-user">
+                      <p class="photo-user-name">
+                        <% if @worship.user_name.present? %>
+                          <%= link_to "#{@worship.user_name}", user_path(@worship.user_id) %>
+                        <% else %>
+                          <%= link_to "ななし#{@worship.user_id}", user_path(@worship.user_id) %>
+                        <% end %>
+                      </p>
+                      <p class="worship-date">参拝日 : <%= @worship.date %></p>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="thumbnail-thumb">
             <% @worship.images.each do |image|  %>
-              <div class="course-item">
-                <%= image_tag image.to_s, class:"course-item-img img" %>
-              </div>
+              <%= image_tag image.to_s %>
             <% end %>
           </div>
         </div>
-        <div class="thumbnail-thumb">
-          <% @worship.images.each do |image|  %>
-            <%= image_tag image.to_s %>
-          <% end %>
-        </div>
-      </div>
-      <div id="grayDisplay"></div>
-    <% end %>
+        <div id="grayDisplay"></div>
+      <% end %>
+    </div>
     <%# -------------- %>
   </div>
 </section>
