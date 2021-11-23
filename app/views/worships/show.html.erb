@@ -1,5 +1,5 @@
 <div class="contents-title text-center">
-  <h1>参拝記事</h1>
+  <h1 class="main-title">参拝記事</h1>
 </div>
 <section class="container mb-5">
   <div class="row p-0 d-flex mb-2 justify-content-center">
@@ -91,23 +91,25 @@
     </div>
     <%# -------------- %>
   </div>
+  <hr>
+  <div class="col-sm-10 col-md-10 col-lg-6 order-lg-1">
+    <% if current_user %>
+      <%= form_with(model: [@worship, @comment], local: true) do |f| %>
+        <%= render "layouts/error_messages", model: f.object %>
+        <%= f.text_field :content, required: true %>
+        <%= f.submit 'コメントする' %>
+      <% end %>
+    <% end %>
+    <hr>
+    <h4 class="coment-title">コメント一覧</h4>
+    <% if @comments %>
+      <% @comments.each do |comment| %>
+        <p>
+          <%= comment.user_name %>
+          <%= comment.content %>
+        </p>
+      <% end %>
+    <% end %>
+    <p><%= link_to "投稿一覧へ", worships_path %></p>
+  </div>
 </section>
-<hr>
-<% if current_user %>
-  <%= form_with(model: [@worship, @comment], local: true) do |f| %>
-    <%= render "layouts/error_messages", model: f.object %>
-    <%= f.text_field :content, required: true %>
-    <%= f.submit 'コメントする' %>
-  <% end %>
-<% end %>
-<hr>
-<h4>コメント一覧</h4>
-<% if @comments %>
-  <% @comments.each do |comment| %>
-    <p>
-      <%= comment.user_name %>
-      <%= comment.content %>
-    </p>
-  <% end %>
-<% end %>
-<p><%= link_to "投稿一覧へ", worships_path %></p>
