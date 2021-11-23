@@ -1,6 +1,11 @@
 /***** 共通 *****/
 .main-title {
-  padding: 20px;
+  background-image: image-url('h_line.png');
+  background-repeat: no-repeat;
+  background-position: bottom -10px center;
+  background-size: 50% 100%;
+  text-align: center;
+  margin: 25px 0;
 }
 
 .category {
