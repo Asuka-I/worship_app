@@ -1,27 +1,122 @@
+/***** 共通 *****/
+.main-title {
+  background-image: image-url('h_line.png');
+  background-repeat: no-repeat;
+  background-position: bottom -10px center;
+  background-size: 50% 100%;
+  text-align: center;
+  margin: 25px 0;
+}
+
+.category {
+  color: gray;
+  font-size: 13px;
+}
+
+.show-title,
+.prefecture,
+.category {
+  font-family: 'Times New Roman', 'HiraMinProN-W6', 'ヒラギノ明朝 ProN W6', 'Yu Mincho Demibold', '游明朝 Demibold',
+    'NotoSerifJP-Subset', serif;
+  padding-bottom: 10px;
+}
+
+.category-contents {
+  display: inline;
+}
+
+.prefecture-contents {
+  margin: 5px 0 0 10px;
+}
+
+.show-title {
+  font-size: 46px;
+  font-weight: 700;
+  letter-spacing: 0.15rem;
+  line-height: 60px;
+  margin: 0 0 0 10px;
+}
+
+.title-label {
+  font-family: aoyagireishosimo2_O;
+}
+
+.title-label-space {
+  letter-spacing: 0.35rem;
+  padding-right: 8px;
+}
+
+.edit-button,
+.delete-button {
+  padding: 0.2rem 0.45rem !important;
+}
+
+.edit-button .svg-inline--fa,
+.delete-button .svg-inline--fa {
+  font-size: 13px !important;
+}
+
+@media screen and (min-width: 575px) {
+  .detail-wrapper {
+    padding-left: 45px !important;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .detail-wrapper {
+    padding-left: 0 !important;
+  }
+}
 /***** 投稿画像 カルーセル *****/
-.wrapper {
+.photos-wrapper {
   width: auto;
   height: 100%;
 
-  .thumbnail { 
-    max-width: 500px; 
-    margin: 0 auto 5px; 
+  .course-wrapper {
+    position: relative;
+  }
+
+  .thumbnail {
+    max-width: 500px;
+    margin: 0 auto 5px;
     padding: 0;
   }
 
-  .thumbnail img,.thumbnail-nav img { 
+  .caption {
+    width: 100%;
+    position: absolute;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: rgb(233, 233, 233);
+    font-size: 15px;
+    bottom: 0px;
+  }
+
+  .photo-user p {
+    margin-bottom: 0;
+    display: inline;
+  }
+
+  .worship-date {
+    color: fff;
+    float: right;
+  }
+
+  .thumbnail img,
+  .thumbnail-nav img {
     width: 100%;
   }
 
-  .thumbnail-thumb { 
-    max-width: 500px; 
+  .thumbnail-thumb {
+    max-width: 500px;
     margin: 0 auto;
   }
 
-  .thumbnail-thumb li { 
+  .thumbnail-thumb li {
     margin: 5px;
   }
 
+  /***** 投稿画像 サムネイル *****/
   .thumbnial-thumb .slick-next {
     right: 20px;
     z-index: 100;
@@ -59,6 +154,7 @@
   max-width: 100% !important;
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
+  z-index: 1;
 }
 
 #grayDisplay img {
@@ -68,8 +164,8 @@
   left: 0;
   right: 0;
   margin: auto;
-  max-width: 90%;
-  max-height: 90%;
-  height: 90%;
+  max-width: 70%;
+  max-height: 70%;
+  height: 70%;
   object-fit: contain;
 }

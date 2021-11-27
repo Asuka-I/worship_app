@@ -1,48 +1,97 @@
-<h1>御朱印帳 詳細</h1>
-<%# 投稿画像 表示 %>
-<% if @seal.images? %>
-  <div class="wrapper">
-    <div class="course-wrapper">
-      <div class="thumbnail">
-        <% @seal.images.each do |image|  %>
-          <div class="course-item">
-            <%= image_tag image.to_s, class:"course-item-img img" %>
-          </div>
+<div class="contents-title text-center">
+  <h1 class="main-title">御朱印帳</h1>
+</div>
+<section class="container mb-5">
+  <div class="row p-0 d-flex mb-2 justify-content-center">
+    <%# 詳細  %>
+    <div class="col-sm-pu-10 col-md-10 col-lg-6 pt-4 order-lg-2">
+      <div class="col-9 detail-wrapper">
+        <div class="category">
+          <span class="title-label">
+            分
+            <span class="title-label-space"></span>
+            類 > 
+          </span>
+          <p class="category-contents">
+            <%= @seal.category %>
+          </p>
+        </div>
+        <div class="area">
+          <span class="title-label">
+            名
+            <span class="title-label-space"></span>
+            称  
+          </span>
+          <h2 class="show-title">
+            <%= @seal.place %>
+          </h2>
+        </div>
+        <div class="prefecture">
+          <span class="title-label">
+            所在地
+          </span>
+          <p class="prefecture-contents">
+            <%= @seal.prefecture.name %>
+          </p>
+        </div>
+        <% if user_signed_in? %>
+          <p id="seal-<%= @seal.id %>">
+            <% if @seal.liked_seal_by?(current_user) %>
+              <%= render "like", seal: @seal %>
+            <% else %>
+              <%= render "dislike", seal: @seal %>
+            <% end %>
+          </p>
+          <p class="current-user-button">
+            <% if current_user.id == @seal.user_id %>
+              <%= link_to edit_seal_path(@seal), class: "btn btn btn-secondary text-white edit-button", method: :get do %>
+                <i class="fas fa-pen"></i>
+              <% end %>
+              <%= link_to seal_path(@seal), class: "btn btn-danger text-white delete-button", method: :delete do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            <% end %>
+          </p>
         <% end %>
-      </div> 
-    </div> 
-    <div class="thumbnail-thumb">
-      <% @seal.images.each do |image|  %>
-        <%= image_tag image.to_s %>
+      </div>
+    </div>
+    <%# -------------- %>
+    <%# 投稿画像 表示 %>
+    <div class="col-sm-10 col-md-10 col-lg-6 order-lg-1">
+      <% if @seal.images? %>
+        <div class="photos-wrapper">
+          <div class="course-wrapper">
+            <div class="thumbnail">
+              <% @seal.images.each do |image|  %>
+                <div class="course-item">
+                  <%= image_tag image.to_s, class:"course-item-img img" %>
+                  <div class="caption">
+                    <div class="photo-user">
+                      <p class="photo-user-name">
+                        <% if @seal.user_name.present? %>
+                          <%= link_to "#{@seal.user_name}", user_path(@seal.user_id) %>
+                        <% else %>
+                          <%= link_to "ななし#{@seal.user_id}", user_path(@seal.user_id) %>
+                        <% end %>
+                      </p>
+                      <p class="worship-date">参拝日 : <%= @seal.date %></p>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="thumbnail-thumb">
+            <% @seal.images.each do |image|  %>
+              <%= image_tag image.to_s %>
+            <% end %>
+          </div>
+        </div>
+        <div id="grayDisplay"></div>
       <% end %>
-    </div> 
-  </div> 
-  <div id="grayDisplay"></div>
-<% end %>
-<%# -------------- %>
-<p><%= @seal.category %></p>
-<p><%= @seal.prefecture.name %></p>
-<p>場所 : <%= @seal.place %></p>
-<p>参拝日 : <%= @seal.date %></p>
-<% if @seal.user_name.present? %>
-  <%= link_to "#{@seal.user_name}", user_path(@seal.user_id) %>
-<% else %>
-  <%= link_to "会員No.#{@seal.user_id}", user_path(@seal.user_id) %>
-<% end %>
-<% if user_signed_in? %>
-  <p id="seal-<%= @seal.id %>">
-    <% if @seal.liked_seal_by?(current_user) %>
-      <%= render "like", seal: @seal %>
-    <% else %>
-      <%= render "dislike", seal: @seal %>
-    <% end %>
-  </p>
-  <% if current_user.id == @seal.user_id %>
-    <p>
-      <%= link_to "編集", edit_seal_path(@seal) %>
-      <%= link_to "削除", seal_path(@seal), method: :delete, data: { confirm: "削除しますか?" } %>
-    </p>
-  <% end %>
-<% end %>
+    </div>
+    <%# -------------- %>
+  </div>
+</section>
 <hr>
 <p><%= link_to "投稿一覧へ", seals_path %></p>
