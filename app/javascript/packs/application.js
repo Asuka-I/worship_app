@@ -12,9 +12,10 @@ import * as ActiveStorage from '@rails/activestorage';
 import 'jquery';
 import './slick.js';
 import './modal.js';
+import './form-validation.js';
 import 'channels';
 import 'bootstrap/dist/js/bootstrap';
-import "@fortawesome/fontawesome-free/js/all";
+import '@fortawesome/fontawesome-free/js/all';
 
 Rails.start();
 Turbolinks.start();

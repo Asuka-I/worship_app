@@ -1,25 +1,31 @@
-<%= form_with model: @worship, local: true do |f| %>
-  <%= render "layouts/error_messages", model: f.object %>
-  <p><%= f.label :category %></p>
-  <p><%= f.select :category, [["神社", "神社"],["寺", "寺"]], include_blank: "選択して下さい" %></p>
-  <p><%= f.label :prefecture_id %></p>
-  <p><%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"}, {class: ""} %></p>
-  <p><%= f.label :place %></p>
-  <p><%= f.text_field :place %></p>
-  <p><%= f.label :date %></p>
-  <p><%= f.date_field :date %></p>
-  <p><%= f.label :content %></p>
-  <p><%= f.text_area :content %></p>
-  <p>
-    <%= f.file_field :images,  multiple: true , accept: "image/png,image/jpeg,image/gif" %>
-    <%= f.hidden_field :images_cache %>
-  </p>
-  <p>
-    <label>
-      <%= f.check_box :remove_images %>
-      画像を削除する
-    </label>
-  </p>
-  <p><%= f.submit button_value %></p>
-  <p><%= link_to "戻る", :back %></p>
-<% end %>
+<div class="row">
+  <div class="col-md-6 order-md-1">
+    <form class="needs-validation" novalidate>
+      <%= form_with model: @worship, local: true do |f| %>
+        <%= render "layouts/error_messages", model: f.object %>
+        <p><%= f.label :category %></p>
+        <p><%= f.select :category, [["神社", "神社"],["寺", "寺"]], include_blank: "選択して下さい" %></p>
+        <p><%= f.label :prefecture_id %></p>
+        <p><%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"}, {class: ""} %></p>
+        <p><%= f.label :place %></p>
+        <p><%= f.text_field :place %></p>
+        <p><%= f.label :date %></p>
+        <p><%= f.date_field :date %></p>
+        <p><%= f.label :content %></p>
+        <p><%= f.text_area :content %></p>
+        <p>
+          <%= f.file_field :images,  multiple: true , accept: "image/png,image/jpeg,image/gif" %>
+          <%= f.hidden_field :images_cache %>
+        </p>
+        <p>
+          <label>
+            <%= f.check_box :remove_images %>
+            画像を削除する
+          </label>
+        </p>
+        <p><%= f.submit button_value %></p>
+        <p><%= link_to "戻る", :back %></p>
+      <% end %>
+    </form>
+  </div>
+</div>
