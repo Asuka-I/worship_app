@@ -47,7 +47,7 @@
               <%= link_to edit_seal_path(@seal), class: "btn btn btn-secondary text-white edit-button", method: :get do %>
                 <i class="fas fa-pen"></i>
               <% end %>
-              <%= link_to seal_path(@seal), class: "btn btn-danger text-white delete-button", method: :delete do %>
+              <%= link_to seal_path(@seal), class: "btn btn-danger text-white delete-button", method: :delete, data: {confirm: "削除しますか？"} do %>
                 <i class="far fa-trash-alt"></i>
               <% end %>
             <% end %>
