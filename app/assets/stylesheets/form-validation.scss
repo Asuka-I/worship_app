@@ -12,6 +12,7 @@
   padding: 25px 0 9px 0;
 }
 
+/***** 送信ボタン *****/
 .btn-sent-form {
   font-family: aoyagireishosimo2_O;
   text-align: center;
@@ -21,6 +22,7 @@
   background-color: #ba2636;
 }
 
+/***** レスポンシブ *****/
 @media screen and (max-width: 575px) {
   .form-contents {
     border-radius: 0px;
