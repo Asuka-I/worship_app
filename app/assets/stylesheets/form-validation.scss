@@ -2,4 +2,27 @@
   max-width: 960px;
 }
 
-.lh-condensed { line-height: 1.25; }
+.lh-condensed {
+  line-height: 1.25;
+}
+
+.form-contents {
+  background-color: #d6bd7b;
+  border-radius: 25px;
+  padding: 25px 0 9px 0;
+}
+
+.btn-sent-form {
+  font-family: aoyagireishosimo2_O;
+  text-align: center;
+}
+
+.btn-sent-form a {
+  background-color: #ba2636;
+}
+
+@media screen and (max-width: 575px) {
+  .form-contents {
+    border-radius: 0px;
+  }
+}
