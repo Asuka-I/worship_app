@@ -6,10 +6,15 @@
   line-height: 1.25;
 }
 
+.form-title {
+  padding-bottom: 0;
+}
+
 .form-contents {
   background-color: #d6bd7b;
   border-radius: 25px;
   padding: 25px 0 9px 0;
+  margin: 0 0 32px 0;
 }
 
 /***** 送信ボタン *****/
