@@ -26,10 +26,11 @@
         <%= f.label :content %>
         <%= f.text_area :content, class: 'form-control', required: true %>
       </div>
-      <p>
-        <%= f.file_field :images,  multiple: true , accept: "image/png,image/jpeg,image/gif" %>
+      <div class="form-group">
+        <%= f.label :images %>
+        <%= f.file_field :images,  multiple: true , accept: "image/png,image/jpeg,image/gif", class: 'form-control-file' %>
         <%= f.hidden_field :images_cache %>
-      </p>
+      </div>
       <p>
         <label>
           <%= f.check_box :remove_images %>
