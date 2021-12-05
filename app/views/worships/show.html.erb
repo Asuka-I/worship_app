@@ -31,9 +31,17 @@
         </span>
         <p class="prefecture-contents">
           <%= @worship.prefecture.name %>
+          <%= @worship.address %>
         </p>
       </div>
-      <p><%= @worship.content %></p>
+      <div class="thoughts">
+        <span class="title-label">
+          感
+          <span class="title-label-space"></span>
+          想
+        </span>
+        <p class="thoughts-contents"><%=safe_join(@worship.content.split("\n"),tag(:br))%></p>
+      </div>
       <% if user_signed_in? %>
         <p id="worship-<%= @worship.id %>">
           <% if @worship.liked_worship_by?(current_user) %>
@@ -47,7 +55,7 @@
             <%= link_to edit_worship_path(@worship), class: "btn btn btn-secondary text-white edit-button", method: :get do %>
               <i class="fas fa-pen"></i>
             <% end %>
-            <%= link_to worship_path(@worship), class: "btn btn-danger text-white delete-button", method: :delete do %>
+            <%= link_to worship_path(@worship), class: "btn btn-danger text-white delete-button", method: :delete, data: {confirm: "削除しますか？"} do %>
               <i class="far fa-trash-alt"></i>
             <% end %>
           <% end %>

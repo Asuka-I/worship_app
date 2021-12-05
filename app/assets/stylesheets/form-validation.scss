@@ -1,0 +1,35 @@
+.container {
+  max-width: 960px;
+}
+
+.lh-condensed {
+  line-height: 1.25;
+}
+
+.form-title {
+  padding-bottom: 0;
+}
+
+.form-contents {
+  background-color: #d6bd7b;
+  border-radius: 25px;
+  padding: 25px 0 9px 0;
+  margin: 0 0 32px 0;
+}
+
+/***** 送信ボタン *****/
+.btn-sent-form {
+  font-family: aoyagireishosimo2_O;
+  text-align: center;
+}
+
+.btn-sent-form a {
+  background-color: #ba2636;
+}
+
+/***** レスポンシブ *****/
+@media screen and (max-width: 575px) {
+  .form-contents {
+    border-radius: 0px;
+  }
+}

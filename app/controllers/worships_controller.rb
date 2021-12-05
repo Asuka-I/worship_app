@@ -47,7 +47,7 @@ class WorshipsController < ApplicationController
   private
 
   def worship_params
-    params.require(:worship).permit(:category, :prefecture_id, :place, :date, :content, { images: [] }, :images_cache, :remove_images)
+    params.require(:worship).permit(:category, :prefecture_id, :place, :date, :content, :address, { images: [] }, :images_cache, :remove_images)
   end
 
   def set_worship
