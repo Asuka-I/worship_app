@@ -15,7 +15,8 @@
 
 .show-title,
 .prefecture,
-.category {
+.category,
+.thoughts {
   font-family: 'Times New Roman', 'HiraMinProN-W6', 'ヒラギノ明朝 ProN W6', 'Yu Mincho Demibold', '游明朝 Demibold',
     'NotoSerifJP-Subset', serif;
   padding-bottom: 10px;
@@ -25,7 +26,8 @@
   display: inline;
 }
 
-.prefecture-contents {
+.prefecture-contents,
+.thoughts-contents {
   margin: 5px 0 0 10px;
 }
 
