@@ -16,11 +16,19 @@ Rails.application.routes.draw do
   end
 
   resources :seals do
+    collection do
+      get "search"
+    end
     resource :seal_likes, only: [:create, :destroy]
+  
   end
 
   resources :worships do
+    collection do
+      get "search"
+    end
     resources :comments, only: :create
     resource :worship_likes, only: [:create, :destroy]
   end
+
 end
