@@ -85,12 +85,15 @@
           <li class="nav-item">
             <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "nav-link active"%>
           </li>
+        <% end %>
+      </ul>
+      <!-----  検索フォーム  ----->
+      <%= search_form_for @q, url: search_worships_path do |f| %>
+        <div class="form-inline my-2 my-lg-0">
+          <%= f.search_field :place_cont, class:"form-control mr-sm-2", type:"search", placeholder:"例: 神奈川 神社"  %>
+          <%= f.submit '検索', class:"btn btn-outline-light my-2 my-sm-0", type:"submit" %>
+        </div>
       <% end %>
-    </ul>
-    <!-----  検索フォーム  ----->
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    </div>
   </div>
 </nav>
