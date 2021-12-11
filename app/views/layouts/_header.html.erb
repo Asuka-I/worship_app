@@ -90,7 +90,7 @@
       <!-----  検索フォーム  ----->
       <%= search_form_for @q, url: search_users_path do |f| %>
         <div class="form-inline my-2 my-lg-0">
-          <%= f.search_field :worships_place_or_seals_place_cont, class:"form-control mr-sm-2", type:"search", placeholder:"例: 神奈川 神社"  %>
+          <%= f.search_field :worships_place_or_seals_place_or_worships_category_or_seals_category_or_worships_prefecture_id_or_seals_prefecture_id_cont, class:"form-control mr-sm-2", type:"search", placeholder:"例: 神奈川 神社"  %>
           <%= f.submit '検索', class:"btn btn-outline-light my-2 my-sm-0", type:"submit" %>
         </div>
       <% end %>
