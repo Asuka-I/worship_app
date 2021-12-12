@@ -1,2 +1,43 @@
-<h1>検索結果</h1>
+<div class="album py-5 ">
+  <div class="container worship-index">
+    <div class="bg-mask">
+      <h2 class="worships-list-title">検索結果</h2>
+      <div class="row">
+        <% @results.each do |worship| %>
+          <div class="col-md-3 col-6">
+            <div class="card mb-4 shadow-sm">
+              <a href="/worships/<%= worship.id %>">
+                <% if worship.images? %>
+                  <%= image_tag worship.images[0].to_s, class: 'card-img-top' %>
+                <% else %>
+                  <%= image_tag "default.jpg", class: 'card-img-top' %>
+                <% end %>
+                <div class="card-body card-worship">
+                  <p class="card-text">
+                    <% if worship.category == "神社" %>
+                      <%= image_tag "shrine_icon.jpg", class: 'shrine-icon worships-icon' %> | <%= worship.prefecture.name %>
+                    <% else %>
+                      <%= image_tag "temple_icon.jpg", class: 'temple-icon worships-icon' %> | <%= worship.prefecture.name %>
+                    <% end %>
+                  </p>
+                  <p><%= worship.place %></p>
+                  <p class="card-text"><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
+                  <p class="likes-button" id="worship-<%= worship.id %>">
+                    <% if user_signed_in? %>
+                      <% if worship.liked_worship_by?(current_user) %>
+                        <%= render "like", worship: worship %>
+                      <% else %>
+                        <%= render "dislike", worship: worship %>
+                      <% end %>
+                    <% end %>
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 <p><%= link_to "戻る", :back %></p>
