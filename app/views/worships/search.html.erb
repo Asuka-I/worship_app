@@ -3,38 +3,42 @@
     <div class="bg-mask">
       <h2 class="worships-list-title">検索結果</h2>
       <div class="row">
-        <% @results.each do |worship| %>
-          <div class="col-md-3 col-6">
-            <div class="card mb-4 shadow-sm">
-              <a href="/worships/<%= worship.id %>">
-                <% if worship.images? %>
-                  <%= image_tag worship.images[0].to_s, class: 'card-img-top' %>
-                <% else %>
-                  <%= image_tag "default.jpg", class: 'card-img-top' %>
-                <% end %>
-                <div class="card-body card-worship">
-                  <p class="card-text">
-                    <% if worship.category == "神社" %>
-                      <%= image_tag "shrine_icon.jpg", class: 'shrine-icon worships-icon' %> | <%= worship.prefecture.name %>
-                    <% else %>
-                      <%= image_tag "temple_icon.jpg", class: 'temple-icon worships-icon' %> | <%= worship.prefecture.name %>
-                    <% end %>
-                  </p>
-                  <p><%= worship.place %></p>
-                  <p class="card-text"><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
-                  <p class="likes-button" id="worship-<%= worship.id %>">
-                    <% if user_signed_in? %>
-                      <% if worship.liked_worship_by?(current_user) %>
-                        <%= render "like", worship: worship %>
+        <% if @results.length != 0 %>
+          <% @results.each do |worship| %>
+            <div class="col-md-3 col-6">
+              <div class="card mb-4 shadow-sm">
+                <a href="/worships/<%= worship.id %>">
+                  <% if worship.images? %>
+                    <%= image_tag worship.images[0].to_s, class: 'card-img-top' %>
+                  <% else %>
+                    <%= image_tag "default.jpg", class: 'card-img-top' %>
+                  <% end %>
+                  <div class="card-body card-worship">
+                    <p class="card-text">
+                      <% if worship.category == "神社" %>
+                        <%= image_tag "shrine_icon.jpg", class: 'shrine-icon worships-icon' %> | <%= worship.prefecture.name %>
                       <% else %>
-                        <%= render "dislike", worship: worship %>
+                        <%= image_tag "temple_icon.jpg", class: 'temple-icon worships-icon' %> | <%= worship.prefecture.name %>
                       <% end %>
-                    <% end %>
-                  </p>
-                </div>
-              </a>
+                    </p>
+                    <p><%= worship.place %></p>
+                    <p class="card-text"><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
+                    <p class="likes-button" id="worship-<%= worship.id %>">
+                      <% if user_signed_in? %>
+                        <% if worship.liked_worship_by?(current_user) %>
+                          <%= render "like", worship: worship %>
+                        <% else %>
+                          <%= render "dislike", worship: worship %>
+                        <% end %>
+                      <% end %>
+                    </p>
+                  </div>
+                </a>
+              </div>
             </div>
-          </div>
+          <% end %>
+        <% else %>
+          <p class="search-result">検索結果はありません</p>
         <% end %>
       </div>
     </div>
