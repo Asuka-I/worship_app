@@ -6,9 +6,10 @@
       <div class="row search-form">
         <%= search_form_for @q, url: search_worships_path do |f| %>
           <div class="form-inline my-2 my-lg-0">
-            <%= f.select :category_eq, [["神社", "神社"],["寺", "寺"]], {include_blank: "カテゴリー選択"}, class:"form-control mr-sm-2" %>
-            <%= f.search_field :place_or_prefecture_id_cont, class:"form-control mr-sm-2", type:"search", placeholder:"例: 神奈川 寒川神社"  %>
-            <%= f.submit '検索', class:"btn btn-outline-light my-2 my-sm-0", type:"submit" %>
+            <%= f.select :category_eq, [["神社", "神社"],["寺", "寺"]], {include_blank: "カテゴリー選択"}, class:"form-control mr-sm-2 search-category" %>
+            <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, {include_blank: "都道府県選択"}, class: "form-control mr-sm-2 search-prefecture" %>
+            <%= f.search_field :place_cont, class:"form-control mr-sm-2 search-place", type:"search", placeholder:"例: 寒川神社"  %>
+            <%= f.submit '検索', class:"btn btn-primary my-2 my-sm-0", type:"submit" %>
           </div>
         <% end %>
       </div>
