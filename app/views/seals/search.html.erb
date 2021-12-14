@@ -1,7 +1,7 @@
 <div class="album py-5 ">
-  <div class="container worship-index">
+  <div class="container seal-index">
     <div class="bg-mask">
-      <h2 class="worships-list-title">検索結果</h2>
+      <h2 class="seals-list-title">検索結果</h2>
       <!-----  検索フォーム  ----->
       <div class="row search-form">
         <%= search_form_for @q, url: search_seals_path do |f| %>
@@ -15,31 +15,31 @@
       </div>
       <div class="row">
         <% if @results.length != 0 %>
-          <% @results.each do |worship| %>
+          <% @results.each do |seal| %>
             <div class="col-md-3 col-6">
               <div class="card mb-4 shadow-sm">
-                <a href="/worships/<%= worship.id %>">
-                  <% if worship.images? %>
-                    <%= image_tag worship.images[0].to_s, class: 'card-img-top' %>
+                <a href="/seals/<%= seal.id %>">
+                  <% if seal.images? %>
+                    <%= image_tag seal.images[0].to_s, class: 'card-img-top' %>
                   <% else %>
                     <%= image_tag "default.jpg", class: 'card-img-top' %>
                   <% end %>
-                  <div class="card-body card-worship">
+                  <div class="card-body card-seal">
                     <p class="card-text">
-                      <% if worship.category == "神社" %>
-                        <%= image_tag "shrine_icon.jpg", class: 'shrine-icon worships-icon' %> | <%= worship.prefecture.name %>
+                      <% if seal.category == "神社" %>
+                        <%= image_tag "shrine_icon.jpg", class: 'shrine-icon seals-icon' %> | <%= seal.prefecture.name %>
                       <% else %>
-                        <%= image_tag "temple_icon.jpg", class: 'temple-icon worships-icon' %> | <%= worship.prefecture.name %>
+                        <%= image_tag "temple_icon.jpg", class: 'temple-icon seals-icon' %> | <%= seal.prefecture.name %>
                       <% end %>
                     </p>
-                    <p><%= worship.place %></p>
-                    <p class="card-text"><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
-                    <p class="likes-button" id="worship-<%= worship.id %>">
+                    <p><%= seal.place %></p>
+                    <p class="card-text"><%= seal.user_name.present? ? seal.user_name : "会員No.#{seal.user.id}" %></p>
+                    <p class="likes-button" id="seal-<%= seal.id %>">
                       <% if user_signed_in? %>
-                        <% if worship.liked_worship_by?(current_user) %>
-                          <%= render "like", worship: worship %>
+                        <% if seal.liked_seal_by?(current_user) %>
+                          <%= render "like", seal: seal %>
                         <% else %>
-                          <%= render "dislike", worship: worship %>
+                          <%= render "dislike", seal: seal %>
                         <% end %>
                       <% end %>
                     </p>
@@ -55,5 +55,5 @@
     </div>
   </div>
 </div>
-<%# <%= paginate @worships %>
+<%# <%= paginate @seals %>
 <p><%= link_to "戻る", :back %></p>
