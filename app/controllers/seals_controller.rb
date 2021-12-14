@@ -1,11 +1,13 @@
 class SealsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_seal, only: %i[edit update destroy]
+  before_action :set_q, only: [:index, :show, :search]
 
   PER_PAGE = 12
 
   def index
     @seals = Seal.all.includes(:user, :seal_likes).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
+    @q = Seal.all.ransack(params[:q])
   end
 
   def show
@@ -42,6 +44,10 @@ class SealsController < ApplicationController
     redirect_to @seal, alert: "削除しました"
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
 
   def seal_params
@@ -50,5 +56,9 @@ class SealsController < ApplicationController
 
   def set_seal
     @seal = current_user.seals.find(params[:id])
+  end
+
+  def set_q
+    @q = Seal.ransack(params[:q])
   end
 end
