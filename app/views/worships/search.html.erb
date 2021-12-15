@@ -4,7 +4,7 @@
       <h2 class="worships-list-title">検索結果</h2>
       <!-----  検索フォーム  ----->
       <div class="row search-form">
-        <%= search_form_for @q, url: search_seals_path do |f| %>
+        <%= search_form_for @q, url: search_worships_path do |f| %>
           <div class="form-inline my-2 my-lg-0">
             <%= f.select :category_eq, [["神社", "神社"],["寺", "寺"]], {include_blank: "カテゴリー選択"}, class:"form-control mr-sm-2 search-category" %>
             <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, {include_blank: "都道府県選択"}, class: "form-control mr-sm-2 search-prefecture" %>
