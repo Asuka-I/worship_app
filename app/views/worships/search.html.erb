@@ -1,7 +1,17 @@
 <div class="album py-5 ">
   <div class="container worship-index">
     <div class="bg-mask">
-      <h2 class="worships-list-title">検索結果</h2>
+      <h2 class="worships-list-title">
+        検索結果
+        <span class="title-font-size">
+          <span class="title-label-space"></span>
+          -
+          <span class="title-label-space"></span>
+          参拝記事
+          <span class="title-label-space"></span>
+          -
+        </span>
+        </h2>
       <!-----  検索フォーム  ----->
       <div class="row search-form">
         <%= search_form_for @q, url: search_worships_path do |f| %>

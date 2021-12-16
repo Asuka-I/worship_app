@@ -60,6 +60,11 @@ h1,.navbar-brand,.nav-link,.guest,.seals-list-title,.worships-list-title{
   margin-bottom: 25px;
 }
 
+.seals-list-title .title-font-size,
+.worships-list-title .title-font-size{
+  font-size:20px;
+}
+
 /***** ナビゲーションバー  *****/
 .navbar .dropdown-menu div[class*='col'] {
   margin-bottom: 1rem;
