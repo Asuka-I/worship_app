@@ -26,7 +26,6 @@ Rails.application.routes.draw do
       get "search"
     end
     resource :seal_likes, only: [:create, :destroy]
-  
   end
 
   resources :worships do
@@ -36,5 +35,4 @@ Rails.application.routes.draw do
     resources :comments, only: :create
     resource :worship_likes, only: [:create, :destroy]
   end
-
 end
