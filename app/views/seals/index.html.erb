@@ -1,9 +1,19 @@
 <div class="album py-5 ">
   <div class="container seal-index">
     <h2 class="seals-list-title">ご朱印帳一覧</h2>
+    <!-----  検索フォーム  ----->
+    <div class="row search-form">
+      <%= search_form_for @q, url: search_seals_path do |f| %>
+        <div class="form-inline my-2 my-lg-0">
+          <%= f.select :category_eq, [["神社", "神社"],["寺", "寺"]], {include_blank: "カテゴリー選択"}, class:"form-control mr-sm-2 search-category" %>
+          <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, {include_blank: "都道府県選択"}, class: "form-control mr-sm-2 search-prefecture" %>
+          <%= f.search_field :place_cont, class:"form-control mr-sm-2 search-place", type:"search", placeholder:"例: 寒川神社"  %>
+          <%= f.submit '検索', class:"btn btn-primary my-2 my-sm-0", type:"submit" %>
+        </div>
+      <% end %>
+    </div>
     <div class="row">
       <% @seals.each do |seal| %>
-        <%# <div class="col-4 col-md-3 col-lg-2"> %>
         <div class="col-md-3 col-6">
           <div class="card mb-4 shadow-sm">
             <a href="/seals/<%= seal.id %>">

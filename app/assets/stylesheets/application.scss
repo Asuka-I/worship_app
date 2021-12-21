@@ -60,6 +60,11 @@ h1,.navbar-brand,.nav-link,.guest,.seals-list-title,.worships-list-title{
   margin-bottom: 25px;
 }
 
+.seals-list-title .title-font-size,
+.worships-list-title .title-font-size{
+  font-size:20px;
+}
+
 /***** ナビゲーションバー  *****/
 .navbar .dropdown-menu div[class*='col'] {
   margin-bottom: 1rem;
@@ -288,4 +293,23 @@ div.field_with_errors {
 .btn-info.disabled.focus, .btn-info[disabled].focus, fieldset[disabled] .btn-info.focus {
     background: #bb5535 !important; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
     color: #fff !important; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+}
+
+/***** 検索フォーム *****/
+.search-form{
+  padding: 0 0 20px 15px;
+}
+
+.search-result{
+   margin-left: 15px;
+ }
+
+@media screen and (max-width: 576px) {
+  .search-form{
+    padding: 0 12px 0 12px;
+  }
+  .search-category,
+  .search-prefecture{
+  margin-bottom: 5px;
+ }
 }

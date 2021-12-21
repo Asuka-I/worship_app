@@ -2,9 +2,19 @@
   <div class="container worship-index">
     <div class="bg-mask">
       <h2 class="worships-list-title">参拝記事一覧</h2>
+      <!-----  検索フォーム  ----->
+      <div class="row search-form">
+        <%= search_form_for @q, url: search_worships_path do |f| %>
+          <div class="form-inline my-2 my-lg-0">
+            <%= f.select :category_eq, [["神社", "神社"],["寺", "寺"]], {include_blank: "カテゴリー選択"}, class:"form-control mr-sm-2 search-category" %>
+            <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, {include_blank: "都道府県選択"}, class: "form-control mr-sm-2 search-prefecture" %>
+            <%= f.search_field :place_cont, class:"form-control mr-sm-2 search-place", type:"search", placeholder:"例: 寒川神社"  %>
+            <%= f.submit '検索', class:"btn btn-primary my-2 my-sm-0", type:"submit" %>
+          </div>
+        <% end %>
+      </div>
       <div class="row">
         <% @worships.each do |worship| %>
-          <%# <div class="col-4 col-md-3 col-lg-2"> %>
           <div class="col-md-3 col-6">
             <div class="card mb-4 shadow-sm">
               <a href="/worships/<%= worship.id %>">
@@ -14,8 +24,14 @@
                   <%= image_tag "default.jpg", class: 'card-img-top' %>
                 <% end %>
                 <div class="card-body card-worship">
-                  <p class="card-text"><%= worship.category %> | <%= worship.prefecture.name %> </p>
-                  <p class="card-text"><%= worship.place %></p>
+                  <p class="card-text">
+                    <% if worship.category == "神社" %>
+                      <%= image_tag "shrine_icon.jpg", class: 'shrine-icon worships-icon' %> | <%= worship.prefecture.name %>
+                    <% else %>
+                      <%= image_tag "temple_icon.jpg", class: 'temple-icon worships-icon' %> | <%= worship.prefecture.name %>
+                    <% end %>
+                  </p>
+                  <p><%= worship.place %></p>
                   <p class="card-text"><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
                   <p class="likes-button" id="worship-<%= worship.id %>">
                     <% if user_signed_in? %>

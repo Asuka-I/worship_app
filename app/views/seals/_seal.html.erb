@@ -13,7 +13,13 @@
                 <p><%= image_tag "default.jpg", class: 'card-img-top' %></p>
               <% end %>
               <div class="card-body">
-                <p class="card-text"><%= seal.category %> | <%= seal.prefecture.name %></p>
+                <p class="card-text">
+                  <% if seal.category == "神社" %>
+                    <%= image_tag "shrine_icon.jpg", class: 'shrine-icon worships-icon' %> | <%= seal.prefecture.name %>
+                  <% else %>
+                    <%= image_tag "temple_icon.jpg", class: 'temple-icon worships-icon' %> | <%= seal.prefecture.name %>
+                  <% end %>
+                </p>
                 <p class="card-text"><%= seal.place %></p>
                 <p class="card-text"><%= seal.user_name.present? ? seal.user_name : "会員No.#{seal.user.id}" %></p>
               </div>
