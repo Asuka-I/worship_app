@@ -18,6 +18,8 @@ class User < ApplicationRecord
     passive_relationships.find_by(following_id: user.id).present?
   end
 
+  mount_uploader :avatar, AvatarUploader
+
   # ゲストログイン
   def self.guest
     find_or_create_by!(email: "guest@example.com") do |user|
