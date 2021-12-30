@@ -1,11 +1,44 @@
-<h1>会員情報</h1>
-<h3>ユーザー名</h3>
-<%= @user.name %>
-<h3>プロフィール</h3>
-<%= @user.introduce%>
-<hr>
-<p><%=link_to "フォロー中", follows_user_path(@user.id) %>
-  <%= @user.followings.count %></p>
-<p><%=link_to "フォロワー", followers_user_path(@user.id) %>
-  <%= @user.followers.count %></p>
-<%= render "relationships/follow_button" %>
+<div class="contents-title text-center">
+  <h1>会員情報</h1>
+</div>
+<div class="profile-wrap">
+  <div class="row">
+    <div class="col-5 col-sm-4 col-xs-4 text-center">
+      <% if @user.avatar? %>
+        <%= image_tag @user.avatar.url, class: "round-img" %>
+      <% else %>
+        <%= image_tag "default.jpg", class: "round-img" %>
+      <% end %>
+    </div>
+    <div class="col-7 col-sm-8 col-xs-8 center-block profile-texts">
+      <div class="row">
+        <h2><%= @user.name %></h2>
+        <%= link_to(edit_user_registration_path) do %>
+          <span class="fas fa-pen edit-user-btn"></span>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="follow-btn">
+          <%=link_to "フォロー中", follows_user_path(@user.id), class: "follow-link common-link" %>
+        </div>
+        <div class="follow-count">
+          <%= @user.followings.count %>
+        </div>
+        <div class="follow-btn">
+          <%=link_to "フォロワー", followers_user_path(@user.id), class: "follow-link common-link" %>
+        </div>
+        <div class="follower-count">
+          <%= @user.followers.count %>
+        </div>
+        <%= render "relationships/follow_button" %>
+      </div>
+      <div class="row">
+        <p>
+          <%= @user.introduce %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<%= link_to "参拝記事", worships_path(@user.id) %>
+<%= link_to("参拝", "/users/#{@user.id}/worships") %>

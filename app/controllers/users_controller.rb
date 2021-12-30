@@ -9,6 +9,11 @@ class UsersController < ApplicationController
     @seals = @user.seals.page(params[:page]).per(PER_PAGE)
   end
 
+  def worships
+    @user = User.find_by(id: params[:id])
+    @worships = Worship.where(user_id: @user.id)
+  end
+
   def follows
     user = User.find(params[:id])
     @users = user.followings

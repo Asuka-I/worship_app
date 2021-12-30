@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
   end
 
+  get "users/:id/worships" => "users#worships"
+
   resources :users do
     collection do
       get "search"
