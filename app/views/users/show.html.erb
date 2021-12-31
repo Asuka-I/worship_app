@@ -13,8 +13,10 @@
     <div class="col-7 col-sm-8 col-xs-8 center-block profile-texts">
       <div class="row">
         <h2><%= @user.name %></h2>
-        <%= link_to(edit_user_registration_path) do %>
-          <span class="fas fa-pen edit-user-btn"></span>
+        <% if user_signed_in? == current_user.id %>
+          <%= link_to(edit_user_registration_path) do %>
+            <i class="fas fa-pen edit-user-btn"></i>
+          <% end %>
         <% end %>
       </div>
       <div class="row">
@@ -40,5 +42,5 @@
     </div>
   </div>
 </div>
-<%= link_to "参拝記事", worships_path(@user.id) %>
-<%= link_to("参拝", "/users/#{@user.id}/worships") %>
+<%= link_to("参拝記事", "/users/#{@user.id}/worships") %>
+<%= link_to("御朱印帳", "/users/#{@user.id}/seals") %>

@@ -43,37 +43,34 @@
 <%= link_to("参拝記事", "/users/#{@user.id}/worships") %>
 <%= link_to("御朱印帳", "/users/#{@user.id}/seals") %>
 <div class="album py-5 ">
-  <div class="container worship-index">
-    <div class="bg-mask">
-      <h2 class="worships-list-title">参拝記事一覧</h2>
-      <div class="row">
-        <% @worships.each do |worship| %>
-          <div class="col-md-3 col-6">
-            <div class="card mb-4 shadow-sm">
-              <a href="/worships/<%= worship.id %>">
-                <% if worship.images? %>
-                  <%= image_tag worship.images[0].to_s, class: 'card-img-top' %>
-                <% else %>
-                  <%= image_tag "default.jpg", class: 'card-img-top' %>
-                <% end %>
-                <div class="card-body card-worship">
-                  <p class="card-text">
-                    <% if worship.category == "神社" %>
-                      <%= image_tag "shrine_icon.jpg", class: 'shrine-icon worships-icon' %> | <%= worship.prefecture.name %>
-                    <% else %>
-                      <%= image_tag "temple_icon.jpg", class: 'temple-icon worships-icon' %> | <%= worship.prefecture.name %>
-                    <% end %>
-                  </p>
-                  <p><%= worship.place %></p>
-                  <p class="card-text"><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
-                  </p>
-                </div>
-              </a>
-            </div>
+  <div class="container seal-index">
+    <h2 class="seals-list-title">ご朱印帳一覧</h2>
+    <div class="row">
+      <% @seals.each do |seal| %>
+        <div class="col-md-3 col-6">
+          <div class="card mb-4 shadow-sm">
+            <a href="/seals/<%= seal.id %>">
+              <% if seal.images? %>
+                <p><%= image_tag seal.images[0].to_s, class: 'card-img-top' %></p>
+              <% else %>
+                <p><%= image_tag "default.jpg", class: 'card-img-top' %></p>
+              <% end %>
+              <div class="card-body card-seal">
+                <p class="card-text">
+                  <% if seal.category == "神社" %>
+                    <%= image_tag "shrine_icon.jpg", class: 'shrine-icon worships-icon' %> | <%= seal.prefecture.name %>
+                  <% else %>
+                    <%= image_tag "temple_icon.jpg", class: 'temple-icon worships-icon' %> | <%= seal.prefecture.name %>
+                  <% end %>
+                </p>
+                <p class="card-text"><%= seal.place %></p>
+                <p class="card-text"><%= seal.user_name.present? ? seal.user_name : "会員No.#{seal.user.id}" %></p>
+              </div>
+            </a>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
-<%= paginate @worships %>
+<%= paginate @seals %>
