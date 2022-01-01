@@ -68,6 +68,11 @@
                   <%= image_tag image.to_s, class:"course-item-img img" %>
                   <div class="caption">
                     <div class="photo-user">
+                      <% if @seal.user.avatar? %>
+                        <%= image_tag @seal.user.avatar.url, class: "show-round-img" %>
+                      <% else %>
+                        <%= image_tag "default.jpg", class: "show-round-img" %>
+                      <% end %>
                       <p class="photo-user-name">
                         <% if @seal.user_name.present? %>
                           <%= link_to "#{@seal.user_name}", user_path(@seal.user_id) %>
@@ -75,7 +80,7 @@
                           <%= link_to "ななし#{@seal.user_id}", user_path(@seal.user_id) %>
                         <% end %>
                       </p>
-                      <p class="worship-date">参拝日 : <%= @seal.date %></p>
+                      <p class="seal-date">参拝日 : <%= @seal.date %></p>
                     </div>
                   </div>
                 </div>
@@ -89,6 +94,33 @@
           </div>
         </div>
         <div id="grayDisplay"></div>
+      <% else %>
+         <div class="photos-wrapper">
+          <div class="course-wrapper">
+            <div class="thumbnail">
+                <div class="course-item">
+                  <%= image_tag "default.jpg", class:"course-item-img img" %>
+                  <div class="caption">
+                    <div class="photo-user">
+                      <% if @seal.user.avatar? %>
+                        <%= image_tag @seal.user.avatar.url, class: "show-round-img" %>
+                      <% else %>
+                        <%= image_tag "default.jpg", class: "show-round-img" %>
+                      <% end %>
+                      <p class="photo-user-name">
+                        <% if @seal.user_name.present? %>
+                          <%= link_to "#{@seal.user_name}", user_path(@seal.user_id) %>
+                        <% else %>
+                          <%= link_to "ななし#{@seal.user_id}", user_path(@seal.user_id) %>
+                        <% end %>
+                      </p>
+                      <p class="seal-date">参拝日 : <%= @seal.date %></p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
     <%# -------------- %>

@@ -84,6 +84,7 @@
     padding: 0;
   }
 
+/******** キャプション ********/
   .caption {
     width: 100%;
     position: absolute;
@@ -92,18 +93,38 @@
     color: rgb(233, 233, 233);
     font-size: 15px;
     bottom: 0px;
-  }
 
-  .photo-user p {
-    margin-bottom: 0;
-    display: inline;
-  }
+    .show-round-img {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      float: left;
+      vertical-align: middle;
+    }
 
-  .worship-date {
-    color: fff;
-    float: right;
-  }
+    .photo-user-name {
+      margin: 0 0 0 10px;
+      display: inline-block;
+      transform: translate(-10%,50%);
+      a {
+        color: #F8F8FF;
+        font-size: 1rem;
+        text-decoration: none;
+      }
+      a:hover {
+        color: darkred;
+      }
+    }
 
+    .worship-date,
+    .seal-date {
+      color: fff;
+      float: right;
+      transform: translate(5%,50%);
+    }
+  }
+  
+/******** サムネイル ********/
   .thumbnail img,
   .thumbnail-nav img {
     width: 100%;
