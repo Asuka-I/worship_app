@@ -13,9 +13,9 @@
     <div class="col-7 col-sm-8 col-xs-8 center-block profile-texts">
       <div class="row">
         <h2><%= @user.name %></h2>
-        <% if user_signed_in? == current_user.id %>
-          <%= link_to(edit_user_registration_path) do %>
-            <i class="fas fa-pen edit-user-btn"></i>
+        <% if current_user.id == @user.id %>
+          <%= link_to edit_user_registration_path(@user.id) do %>
+            <span class="fas fa-pen edit-user-btn"></span>
           <% end %>
         <% end %>
       </div>
@@ -32,7 +32,9 @@
         <div class="follower-count">
           <%= @user.followers.count %>
         </div>
-        <%= render "relationships/follow_button" %>
+        <div class="follow-btn">
+          <%= render "relationships/follow_button" %>
+        </div>
       </div>
       <div class="row">
         <p>
@@ -42,5 +44,16 @@
     </div>
   </div>
 </div>
-<%= link_to("参拝記事", "/users/#{@user.id}/worships") %>
-<%= link_to("御朱印帳", "/users/#{@user.id}/seals") %>
+<%# ---------- サイドナビ -------- %>
+<nav class="navbar navbar-expand justify-content-center user-nav" >
+  <div class="collapse navbar-collapse justify-content-center">
+    <ul class="navbar-nav text-md-center nav-justified w-100">
+      <li class="nav-item align-items-center">
+        <%= link_to("参拝記事", "/users/#{@user.id}/worships", {class: "nav-link worship-link"}) %>
+      </li>
+      <li class="nav-item">
+        <%= link_to("ご朱印帳", "/users/#{@user.id}/seals", {class: "nav-link user-nav-link"}) %>
+      </li>
+    </ul>
+  </div>
+</nav>

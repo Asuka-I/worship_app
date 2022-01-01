@@ -13,12 +13,9 @@
   color: #ba2636;
 }
 
-.follow-count {
-  margin:0 3px 0 3px;
-}
-
+.follow-count,
 .follower-count {
-  margin:0 0 0 3px;
+  margin:0 3px 0 3px;
 }
 
 .follow-btn {
@@ -31,6 +28,18 @@
   
   a:hover {
     color: darkred;
+  }
+}
+
+.user-nav {
+  background-color: #ba2636;
+  margin: 0 auto;
+  max-width: 79%;
+  .nav-link {
+    color: #F8F8FF;
+  }
+  .worship-link {
+    border-right: 1px solid;
   }
 }
 
