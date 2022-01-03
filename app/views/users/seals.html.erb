@@ -79,8 +79,32 @@
                     <%= image_tag "temple_icon.jpg", class: 'temple-icon worships-icon' %> | <%= seal.prefecture.name %>
                   <% end %>
                 </p>
-                <p class="card-text"><%= seal.place %></p>
-                <p class="card-text"><%= seal.user_name.present? ? seal.user_name : "会員No.#{seal.user.id}" %></p>
+                  <p class="index-place"><%= seal.place %></p>
+                  <p class="card-text">
+                    <div class="index-user">
+                      <% if seal.user.avatar? %>
+                        <%= image_tag seal.user.avatar.url, class: "index-round-img" %>
+                      <% else %>
+                        <%= image_tag "default.jpg", class: "index-round-img" %>
+                      <% end %>
+                      <p class="index-user-name">
+                        <% if seal.user_name.present? %>
+                          <%= link_to "#{seal.user_name}", user_path(seal.user_id) %>
+                        <% else %>
+                          <%= link_to "ななし#{seal.user_id}", user_path(seal.user_id) %>
+                        <% end %>
+                      </p>
+                    </div>
+                  </p>
+                  <p class="likes-button" id="seal-<%= seal.id %>">
+                    <% if user_signed_in? %>
+                      <% if seal.liked_seal_by?(current_user) %>
+                        <%= render "seals/like", seal: seal %>
+                      <% else %>
+                        <%= render "seals/dislike", seal: seal %>
+                      <% end %>
+                    <% end %>
+                  </p>
               </div>
             </a>
           </div>

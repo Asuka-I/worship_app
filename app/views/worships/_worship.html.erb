@@ -4,7 +4,6 @@
       <h2 class="worships-list-title">参拝記事一覧</h2>
       <div class="row">
         <% @worships.each do |worship| %>
-          <%# <div class="col-4 col-md-3 col-lg-2"> %>
           <div class="col-md-3 col-6">
             <div class="card mb-4 shadow-sm">
               <a href="/worships/<%= worship.id %>">
@@ -21,8 +20,32 @@
                       <%= image_tag "temple_icon.jpg", class: 'temple-icon worships-icon' %> | <%= worship.prefecture.name %>
                     <% end %>
                   </p>
-                  <p class="card-text"><%= worship.place %></p>
-                  <p class="card-text"><%= worship.user_name.present? ? worship.user_name : "会員No.#{worship.user.id}" %></p>
+                  <p class="index-place"><%= worship.place %></p>
+                  <p class="card-text">
+                    <div class="index-user">
+                      <% if worship.user.avatar? %>
+                        <%= image_tag worship.user.avatar.url, class: "index-round-img" %>
+                      <% else %>
+                        <%= image_tag "default.jpg", class: "index-round-img" %>
+                      <% end %>
+                      <p class="index-user-name">
+                        <% if worship.user_name.present? %>
+                          <%= link_to "#{worship.user_name}", user_path(worship.user_id) %>
+                        <% else %>
+                          <%= link_to "ななし#{worship.user_id}", user_path(worship.user_id) %>
+                        <% end %>
+                      </p>
+                    </div>
+                  </p>
+                  <p class="likes-button" id="worship-<%= worship.id %>">
+                    <% if user_signed_in? %>
+                      <% if worship.liked_worship_by?(current_user) %>
+                        <%= render "worships/like", worship: worship %>
+                      <% else %>
+                        <%= render "worships/dislike", worship: worship %>
+                      <% end %>
+                    <% end %>
+                  </p>
                 </div>
               </a>
             </div>

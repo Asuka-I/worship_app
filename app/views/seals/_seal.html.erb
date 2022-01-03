@@ -1,33 +1,58 @@
 <div class="album py-5 bg-light">
   <div class="container">
-    <h2 class="seals-list-title">ご朱印帳一覧</h2>
-    <div class="row">
-      <% @seals.each do |seal| %>
-        <%# <div class="col-4 col-md-3 col-lg-2"> %>
-        <div class="col-md-3 col-6">
-          <div class="card mb-4 shadow-sm">
-            <a href="/seals/<%= seal.id %>">
-              <% if seal.images? %>
-                <p><%= image_tag seal.images[0].to_s, class: 'card-img-top' %></p>
-              <% else %>
-                <p><%= image_tag "default.jpg", class: 'card-img-top' %></p>
-              <% end %>
-              <div class="card-body">
-                <p class="card-text">
-                  <% if seal.category == "神社" %>
-                    <%= image_tag "shrine_icon.jpg", class: 'shrine-icon worships-icon' %> | <%= seal.prefecture.name %>
-                  <% else %>
-                    <%= image_tag "temple_icon.jpg", class: 'temple-icon worships-icon' %> | <%= seal.prefecture.name %>
-                  <% end %>
-                </p>
-                <p class="card-text"><%= seal.place %></p>
-                <p class="card-text"><%= seal.user_name.present? ? seal.user_name : "会員No.#{seal.user.id}" %></p>
-              </div>
-            </a>
+    <div class="bg-mask">
+      <h2 class="seals-list-title">ご朱印帳一覧</h2>
+      <div class="row">
+        <% @seals.each do |seal| %>
+          <div class="col-md-3 col-6">
+            <div class="card mb-4 shadow-sm">
+              <a href="/seals/<%= seal.id %>">
+                <% if seal.images? %>
+                  <%= image_tag seal.images[0].to_s, class: 'card-img-top' %>
+                <% else %>
+                  <%= image_tag "default.jpg", class: 'card-img-top' %>
+                <% end %>
+                <div class="card-body">
+                  <p class="card-text">
+                    <% if seal.category == "神社" %>
+                      <%= image_tag "shrine_icon.jpg", class: 'shrine-icon seals-icon' %> | <%= seal.prefecture.name %>
+                    <% else %>
+                      <%= image_tag "temple_icon.jpg", class: 'temple-icon seals-icon' %> | <%= seal.prefecture.name %>
+                    <% end %>
+                  </p>
+                  <p class="index-place"><%= seal.place %></p>
+                  <p class="card-text">
+                    <div class="index-user">
+                      <% if seal.user.avatar? %>
+                        <%= image_tag seal.user.avatar.url, class: "index-round-img" %>
+                      <% else %>
+                        <%= image_tag "default.jpg", class: "index-round-img" %>
+                      <% end %>
+                      <p class="index-user-name">
+                        <% if seal.user_name.present? %>
+                          <%= link_to "#{seal.user_name}", user_path(seal.user_id) %>
+                        <% else %>
+                          <%= link_to "ななし#{seal.user_id}", user_path(seal.user_id) %>
+                        <% end %>
+                      </p>
+                    </div>
+                  </p>
+                  <p class="likes-button" id="seal-<%= seal.id %>">
+                    <% if user_signed_in? %>
+                      <% if seal.liked_seal_by?(current_user) %>
+                        <%= render "seals/like", seal: seal %>
+                      <% else %>
+                        <%= render "seals/dislike", seal: seal %>
+                      <% end %>
+                    <% end %>
+                  </p>
+                </div>
+              </a>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
+      <p class="btn-see-more"><%= link_to "もっと見る", seals_path, class: "btn btn-primary", role: "button" %></p>
     </div>
-    <p class="btn-see-more"><%= link_to "もっと見る", seals_path, class: "btn btn-primary", role: "button" %></p>
   </div>
 </div>
