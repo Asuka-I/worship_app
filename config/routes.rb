@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   end
 
   resources :users do
+    member do
+      get "worships"
+      get "seals"
+    end
     collection do
       get "search"
     end

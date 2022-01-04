@@ -3,6 +3,7 @@
   background: rgba(255, 255, 255, 0.8) !important;
   border-radius: 5px;
   box-shadow: 0 2px 5px #ccc;
+  height: 370px;
 }
 
 .card-body {
@@ -34,8 +35,13 @@
   }
 }
 
+.index-place {
+  color: #000011;
+}
+
 .card-text {
-  color: #777;
+  color: #000011;
+  font-weight: bord;
   font-size: 14px;
   line-height: 1;
 }
@@ -44,16 +50,47 @@
   text-align: center;
   border-top: 1px solid #eee;
   padding: 20px;
-}
 
-.card-link a {
-  text-decoration: none;
-  color: #ba2636;
-  margin: 0 10px;
+  .card-link a {
+    text-decoration: none;
+    color: #ba2636;
+    margin: 0 10px;
+  }
 }
 
 .card-link a:hover {
   color: #ba2636;
+}
+
+.index-user{
+  position:absolute;
+  width: 100%;
+  left: 10px;
+  bottom: 20px;
+  
+  .index-round-img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 0 5px 0 0;
+    float: left;
+    position: relative;
+    bottom:9px;
+
+    .index-user-name {
+      color:#ba2636;
+      font-size: 30px;
+      display: inline-block;
+      
+      .index-user-name a {
+        color: #F8F8FF;
+        text-decoration: none;
+      }
+      a:hover {
+        color: darkred;
+      }
+    }
+  }
 }
 
 /***** 共通 アイコン *****/

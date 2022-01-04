@@ -252,6 +252,25 @@ div.field_with_errors {
 
 .likes-button {
   text-align: right;
+  position: relative;
+  bottom: -33px;
+  right: -10px;
+}
+
+@media screen and (max-width: 576px) {
+  .likes-button{
+    position: relative;
+    bottom: -5.3rem;
+    right: -10px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .likes-button{
+    position: relative;
+    bottom: -5.6rem;
+    right: -12px;
+  }
 }
 
 /***** 共通リンクボタン *****/
