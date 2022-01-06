@@ -144,12 +144,19 @@
     <h4 class="coment-title">コメント一覧</h4>
     <% if @comments %>
       <% @comments.each do |comment| %>
-        <p>
-          <%= comment.user_name %>
+        <p class="comment-content">
+          <% if @worship.user_name.present? %>
+            <%= link_to "#{@worship.user_name}", user_path(@worship.user_id) %>
+          <% else %>
+            <%= link_to "ななし#{@worship.user_id}", user_path(@worship.user_id) %>
+          <% end %>
           <%= comment.content %>
         </p>
       <% end %>
     <% end %>
-    <p><%= link_to "投稿一覧へ", worships_path %></p>
+  </div>
+  <hr>
+  <div class="contents-title text-center">
+    <p class="btn back-btn btn-primary text-center"><%= link_to "← 投稿一覧へ", :back %></p>
   </div>
 </section>
