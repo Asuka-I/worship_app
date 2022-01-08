@@ -1,4 +1,5 @@
-#frozen_string_literal: true
+# frozen_string_literal: true
+
 module Users
   class RegistrationsController < Devise::RegistrationsController
     # before_action :configure_sign_up_params, only: [:create]
@@ -35,6 +36,7 @@ module Users
     def ensure_normal_user
       redirect_to root_path, alert: "ゲストユーザーの更新・削除はできません。" if resource.email == "guest@example.com"
     end
+
     # protected
     # If you have extra params to permit, append them to the sanitizer.
     # def configure_sign_up_params
