@@ -46,9 +46,16 @@
   background-color: #ba2636;
 }
 
-
 /***** コンテンツ 背景 *****/
 .bg-light .container {
   background-image: image-url('top_contents_bg.jpg');
   background-position: center;
+}
+
+.top-text{
+  color: #F8F8FF;
+}
+
+.top-title {
+  font-size: 6rem;
 }

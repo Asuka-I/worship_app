@@ -192,3 +192,27 @@
   height: 70%;
   object-fit: contain;
 }
+
+/***** コメント *****/
+.comment-content {
+  a {
+    color: #ba2636;
+    font-size: 1rem;
+  }
+  a:hover {
+    color: darkred;
+    text-decoration: none;
+  }
+}
+
+/***** 戻るボタン *****/
+.back-btn {
+  a {
+    color: #fff;
+    font-size: 1rem;
+  }
+  a:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}

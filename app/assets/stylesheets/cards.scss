@@ -6,6 +6,18 @@
   height: 370px;
 }
 
+@media screen and (max-width: 576px) {
+  .card {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    height: 385px;
+  }
+}
+
 .card-body {
   padding: 18px 1.25rem !important;
 }

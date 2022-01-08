@@ -130,7 +130,7 @@ footer {
   margin-top: 32px;
 }
 
-/***** 戻るボタン *****/
+/***** フッター 戻るボタン *****/
 #page_top{
   width: 40px;
   height: 40px;
@@ -260,7 +260,15 @@ div.field_with_errors {
 @media screen and (max-width: 576px) {
   .likes-button{
     position: relative;
-    bottom: -5.3rem;
+    bottom: -3.5rem;
+    right: -10px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .likes-button{
+    position: relative;
+    bottom: -1.5rem;
     right: -10px;
   }
 }
@@ -268,7 +276,7 @@ div.field_with_errors {
 @media screen and (max-width: 991px) {
   .likes-button{
     position: relative;
-    bottom: -5.6rem;
+    bottom: -1.5rem;
     right: -12px;
   }
 }
