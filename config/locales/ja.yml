@@ -19,16 +19,22 @@ ja:
       comment: コメント
     attributes:
       worship:
+        user: ユーザー
         category: 寺社を選択
         prefecture_id: 都道府県
+        prefecture: 都道府県
         place: 寺社名
         content: 感想
         date: 参拝日
         images: 画像を投稿
         address: 住所
+        raiting: 評価
+        comments: 感想
       seal:
+        user: ユーザー
         category: 寺社を選択
         prefecture_id: 都道府県
+        prefecture: 都道府県
         place: 寺社名
         date: 参拝日
         images: 画像を投稿
