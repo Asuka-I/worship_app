@@ -1,5 +1,14 @@
 ---
 ja:
+  attributes:
+    id: ID
+    namespace: 名前空間
+    resource_type: リソースタイプ
+    resource_id: リソースID
+    author_type: 著者タイプ
+    author_id: 著者ID
+    created_at: 作成日時
+    updated_at: 更新日時
   activerecord:
     models:
       user: ユーザー
@@ -10,22 +19,30 @@ ja:
       comment: コメント
     attributes:
       worship:
+        user: ユーザー
         category: 寺社を選択
         prefecture_id: 都道府県
+        prefecture: 都道府県
         place: 寺社名
         content: 感想
         date: 参拝日
         images: 画像を投稿
         address: 住所
+        raiting: 評価
+        comments: 感想
       seal:
+        user: ユーザー
         category: 寺社を選択
         prefecture_id: 都道府県
+        prefecture: 都道府県
         place: 寺社名
         date: 参拝日
         images: 画像を投稿
         address: 住所
       comment:
         content: コメント
+        worship: 参拝
+        user: ユーザー
   views:
     pagination:
       first: "&laquo; 最初"
