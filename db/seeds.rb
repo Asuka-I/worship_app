@@ -47,4 +47,4 @@ puts "seal_likeデータの投入に成功しました！"
 User.create!(email: email, password: password)
 
 puts "初期データの投入に成功しました！"
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: "admin@example.com", password: "password", password_confirmation: "password") if Rails.env.development?
