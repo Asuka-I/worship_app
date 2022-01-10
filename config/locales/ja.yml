@@ -41,6 +41,8 @@ ja:
         address: 住所
       comment:
         content: コメント
+        worship: 参拝
+        user: ユーザー
   views:
     pagination:
       first: "&laquo; 最初"
