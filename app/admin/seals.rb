@@ -14,4 +14,11 @@ ActiveAdmin.register Seal do
     f.actions
   end
 
+  filter :user
+  filter :category, as: :select, collection: ['寺', '神社']
+  filter :prefecture
+  filter :place
+  filter :address
+  filter :date
+
 end
