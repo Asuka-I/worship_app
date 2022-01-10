@@ -4,5 +4,4 @@ ActiveAdmin.register Comment do
   filter :worship
   filter :user
   filter :content
-
 end
