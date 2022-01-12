@@ -35,6 +35,16 @@
     }
   }
 }
+/***** コンテンツタイトル *****/
+.top-contents-title{
+  background-image: image-url('h_line.png');
+  background-repeat:no-repeat;
+  background-position: bottom -10px center;
+  background-size:50% 100%;
+  text-align:center;
+  margin-bottom: 25px;
+  padding-top:5px;
+}
 
 /***** もっと見るボタン *****/
 .btn-see-more {
@@ -44,6 +54,7 @@
 
 .btn-see-more a {
   background-color: #ba2636;
+  margin-bottom: 20px;
 }
 
 /***** コンテンツ 背景 *****/
