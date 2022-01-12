@@ -52,10 +52,23 @@
   background-position: center;
 }
 
+/***** トップイメージ *****/
 .top-text{
   color: #F8F8FF;
 }
 
 .top-title {
   font-size: 6rem;
+}
+
+@media screen and (max-width: 414px) {
+  .top-title {
+  font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .top-title {
+  font-size: 4rem;
+  }
 }
