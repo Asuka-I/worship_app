@@ -1,0 +1,68 @@
+.profile-wrap {
+  margin: 40px 0px;
+}
+
+.user-title {
+  margin-top: 20px;
+}
+
+.round-img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+
+.edit-user-btn {
+  margin: 0 0 0 8px;
+  color: #ba2636;
+}
+
+.follow-count,
+.follower-count {
+  margin:0 3px 0 3px;
+}
+
+.follow-btn {
+  color: #ba2636;
+
+  .follow-link {
+    color: #ba2636;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: darkred;
+  }
+}
+
+.user-nav {
+  background-color: #ba2636;
+  margin: 0 auto;
+  max-width: 79%;
+  .nav-link {
+    color: #F8F8FF;
+  }
+  .worship-link {
+    border-right: 1px solid;
+  }
+}
+
+@media screen and (min-width: 320px) {
+  .round-img {
+    width: 115px;
+    margin-left: 13px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .round-img {
+    margin-left: 100px;
+  }
+}
+
+@media screen and (max-width: 345px) {
+  .edit-user-btn {
+    padding-left: 0px !important;
+  }
+}
+

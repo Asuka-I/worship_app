@@ -1,0 +1,119 @@
+<div class="contents-title text-center">
+  <h1>会員情報</h1>
+</div>
+<div class="profile-wrap">
+  <div class="row">
+    <div class="col-5 col-sm-4 col-xs-4 text-center">
+      <% if @user.avatar? %>
+        <%= image_tag @user.avatar.url, class: "round-img" %>
+      <% else %>
+        <%= image_tag "default.jpg", class: "round-img" %>
+      <% end %>
+    </div>
+    <div class="col-7 col-sm-8 col-xs-8 center-block profile-texts">
+      <div class="row">
+        <h2><%= @user.name %></h2>
+        <% if current_user.id == @user.id %>
+          <%= link_to edit_user_registration_path(@user.id) do %>
+            <span class="fas fa-pen edit-user-btn"></span>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="follow-btn">
+          <%=link_to "フォロー中", follows_user_path(@user.id), class: "follow-link common-link" %>
+        </div>
+        <div class="follow-count">
+          <%= @user.followings.count %>
+        </div>
+        <div class="follow-btn">
+          <%=link_to "フォロワー", followers_user_path(@user.id), class: "follow-link common-link" %>
+        </div>
+        <div class="follower-count">
+          <%= @user.followers.count %>
+        </div>
+        <div class="follow-btn">
+          <%= render "relationships/follow_button" %>
+        </div>
+      </div>
+      <div class="row">
+        <p>
+          <%= @user.introduce %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<%# ---------- サイドナビ -------- %>
+<nav class="navbar navbar-expand justify-content-center user-nav" >
+  <div class="collapse navbar-collapse justify-content-center">
+    <ul class="navbar-nav text-md-center nav-justified w-100">
+      <li class="nav-item align-items-center">
+        <%= link_to("参拝記事", "/users/#{@user.id}/worships", {class: "nav-link worship-link"}) %>
+      </li>
+      <li class="nav-item">
+        <%= link_to("ご朱印帳", "/users/#{@user.id}/seals", {class: "nav-link user-nav-link"}) %>
+      </li>
+    </ul>
+  </div>
+</nav>
+<%# --------------------------- %>
+<div class="album py-5 ">
+  <div class="container worship-index">
+    <div class="bg-mask">
+      <h2 class="worships-list-title">参拝記事一覧</h2>
+      <div class="row">
+        <% @worships.each do |worship| %>
+          <div class="col-md-3 col-6">
+            <div class="card mb-4 shadow-sm">
+              <a href="/worships/<%= worship.id %>">
+                <% if worship.images? %>
+                  <%= image_tag worship.images[0].to_s, class: 'card-img-top' %>
+                <% else %>
+                  <%= image_tag "default.jpg", class: 'card-img-top' %>
+                <% end %>
+                <div class="card-body card-worship">
+                  <p class="card-text">
+                    <% if worship.category == "神社" %>
+                      <%= image_tag "shrine_icon.jpg", class: 'shrine-icon worships-icon' %> | <%= worship.prefecture.name %>
+                    <% else %>
+                      <%= image_tag "temple_icon.jpg", class: 'temple-icon worships-icon' %> | <%= worship.prefecture.name %>
+                    <% end %>
+                  </p>
+                  <p class="index-place"><%= worship.place %></p>
+                  <p class="card-text">
+                    <div class="index-user">
+                      <% if worship.user.avatar? %>
+                        <%= image_tag worship.user.avatar.url, class: "index-round-img" %>
+                      <% else %>
+                        <%= image_tag "default.jpg", class: "index-round-img" %>
+                      <% end %>
+                      <p class="index-user-name">
+                        <% if worship.user_name.present? %>
+                          <%= link_to "#{worship.user_name}", user_path(worship.user_id) %>
+                        <% else %>
+                          <%= link_to "ななし#{worship.user_id}", user_path(worship.user_id) %>
+                        <% end %>
+                      </p>
+                    </div>
+                  </p>
+                  <p class="likes-button" id="worship-<%= worship.id %>">
+                    <% if user_signed_in? %>
+                      <% if worship.liked_worship_by?(current_user) %>
+                        <%= render "worships/like", worship: worship %>
+                      <% else %>
+                        <%= render "worships/dislike", worship: worship %>
+                      <% end %>
+                    <% end %>
+                  </p>
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= paginate @worships %>

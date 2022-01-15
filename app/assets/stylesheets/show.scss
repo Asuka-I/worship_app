@@ -1,0 +1,227 @@
+/***** 共通 *****/
+.main-title {
+  background-image: image-url('h_line.png');
+  background-repeat: no-repeat;
+  background-position: bottom -10px center;
+  background-size: 50% 100%;
+  text-align: center;
+  margin: 25px 0;
+}
+
+.category {
+  color: gray;
+  font-size: 13px;
+}
+
+.show-title,
+.prefecture,
+.category,
+.thoughts {
+  font-family: 'Times New Roman', 'HiraMinProN-W6', 'ヒラギノ明朝 ProN W6', 'Yu Mincho Demibold', '游明朝 Demibold',
+    'NotoSerifJP-Subset', serif;
+  padding-bottom: 10px;
+}
+
+.category-contents {
+  display: inline;
+}
+
+.prefecture-contents,
+.thoughts-contents {
+  margin: 5px 0 0 10px;
+}
+
+.show-title {
+  font-size: 46px;
+  font-weight: 700;
+  letter-spacing: 0.15rem;
+  line-height: 60px;
+  margin: 0 0 0 10px;
+}
+
+.title-label {
+  font-family: aoyagireishosimo2_O;
+}
+
+.title-label-space {
+  letter-spacing: 0.35rem;
+  padding-right: 8px;
+}
+
+.edit-button,
+.delete-button {
+  padding: 0.2rem 0.45rem !important;
+}
+
+.edit-button .svg-inline--fa,
+.delete-button .svg-inline--fa {
+  font-size: 13px !important;
+}
+
+@media screen and (min-width: 575px) {
+  .detail-wrapper {
+    padding-left: 45px !important;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .detail-wrapper {
+    padding-left: 0 !important;
+  }
+}
+/***** 投稿画像 カルーセル *****/
+.photos-wrapper {
+  width: auto;
+  height: 100%;
+
+  .course-wrapper {
+    position: relative;
+  }
+
+  .thumbnail {
+    max-width: 500px;
+    margin: 0 auto 5px;
+    padding: 0;
+  }
+
+/******** キャプション ********/
+  .caption {
+    width: 100%;
+    position: absolute;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: rgb(233, 233, 233);
+    font-size: 15px;
+    bottom: 0px;
+
+    .show-round-img {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      float: left;
+      vertical-align: middle;
+    }
+
+    .photo-user-name {
+      margin: 0 0 0 10px;
+      display: inline-block;
+      transform: translate(-10%,50%);
+      a {
+        color: #F8F8FF;
+        font-size: 1rem;
+        text-decoration: none;
+      }
+      a:hover {
+        color: darkred;
+      }
+    }
+
+    .worship-date,
+    .seal-date {
+      color: fff;
+      float: right;
+      transform: translate(5%,50%);
+    }
+  }
+  
+/******** サムネイル ********/
+  .thumbnail img,
+  .thumbnail-nav img {
+    width: 100%;
+  }
+
+  .thumbnail-thumb {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .thumbnail-thumb li {
+    margin: 5px;
+  }
+
+  /***** 投稿画像 サムネイル *****/
+  .thumbnial-thumb .slick-next {
+    right: 20px;
+    z-index: 100;
+  }
+
+  .thumbnail-thumb .slick-prev {
+    left: 15px;
+    z-index: 100;
+  }
+
+  .thumbnail-thumb .slick-current {
+    opacity: 0.5;
+  }
+
+  .thumbnail-thumb div div div {
+    cursor: pointer;
+  }
+
+  .thumbnail-thumb .slick-track {
+    transform: unset !important;
+  }
+}
+
+/***** 投稿画像 モーダル *****/
+.course-item img {
+  cursor: pointer;
+}
+
+#grayDisplay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100% !important;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+
+#grayDisplay img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  max-width: 70%;
+  max-height: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+/***** コメント *****/
+.comment-content {
+  a {
+    color: #ba2636;
+    font-size: 1rem;
+  }
+  a:hover {
+    color: darkred;
+    text-decoration: none;
+  }
+}
+
+.comment-btn {
+  padding: 2px !important;
+  font-size: 14px !important;
+
+  a {
+    font-size: 5px !important;
+  }
+}
+
+/***** 戻るボタン *****/
+.back-btn {
+  a {
+    color: #fff;
+    font-size: 1rem;
+  }
+  a:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}

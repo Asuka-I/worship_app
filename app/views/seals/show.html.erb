@@ -1,0 +1,133 @@
+<div class="contents-title text-center">
+  <h1 class="main-title">御朱印帳</h1>
+</div>
+<section class="container mb-5">
+  <div class="row p-0 d-flex mb-2 justify-content-center">
+    <%# 詳細  %>
+    <div class="col-sm-pu-10 col-md-10 col-lg-6 pt-4 order-lg-2">
+      <div class="col-9 detail-wrapper">
+        <div class="category">
+          <span class="title-label">
+            分
+            <span class="title-label-space"></span>
+            類 > 
+          </span>
+          <p class="category-contents">
+            <%= @seal.category %>
+          </p>
+        </div>
+        <div class="area">
+          <span class="title-label">
+            名
+            <span class="title-label-space"></span>
+            称  
+          </span>
+          <h2 class="show-title">
+            <%= @seal.place %>
+          </h2>
+        </div>
+        <div class="prefecture">
+          <span class="title-label">
+            所在地
+          </span>
+          <p class="prefecture-contents">
+            <%= @seal.prefecture.name %>
+            <%= @seal.address %>
+          </p>
+        </div>
+        <% if user_signed_in? %>
+          <p id="seal-<%= @seal.id %>">
+            <% if @seal.liked_seal_by?(current_user) %>
+              <%= render "like", seal: @seal %>
+            <% else %>
+              <%= render "dislike", seal: @seal %>
+            <% end %>
+          </p>
+          <p class="current-user-button">
+            <% if current_user.id == @seal.user_id %>
+              <%= link_to edit_seal_path(@seal), class: "btn btn btn-secondary text-white edit-button", method: :get do %>
+                <i class="fas fa-pen"></i>
+              <% end %>
+              <%= link_to seal_path(@seal), class: "btn btn-danger text-white delete-button", method: :delete, data: {confirm: "削除しますか？"} do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            <% end %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+    <%# -------------- %>
+    <%# 投稿画像 表示 %>
+    <div class="col-sm-10 col-md-10 col-lg-6 order-lg-1">
+      <% if @seal.images? %>
+        <div class="photos-wrapper">
+          <div class="course-wrapper">
+            <div class="thumbnail">
+              <% @seal.images.each do |image|  %>
+                <div class="course-item">
+                  <%= image_tag image.to_s, class:"course-item-img img" %>
+                  <div class="caption">
+                    <div class="photo-user">
+                      <% if @seal.user.avatar? %>
+                        <%= image_tag @seal.user.avatar.url, class: "show-round-img" %>
+                      <% else %>
+                        <%= image_tag "default.jpg", class: "show-round-img" %>
+                      <% end %>
+                      <p class="photo-user-name">
+                        <% if @seal.user_name.present? %>
+                          <%= link_to "#{@seal.user_name}", user_path(@seal.user_id) %>
+                        <% else %>
+                          <%= link_to "ななし#{@seal.user_id}", user_path(@seal.user_id) %>
+                        <% end %>
+                      </p>
+                      <p class="seal-date">参拝日 : <%= @seal.date %></p>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="thumbnail-thumb">
+            <% @seal.images.each do |image|  %>
+              <%= image_tag image.to_s %>
+            <% end %>
+          </div>
+        </div>
+        <div id="grayDisplay"></div>
+      <% else %>
+         <div class="photos-wrapper">
+          <div class="course-wrapper">
+            <div class="thumbnail">
+                <div class="course-item">
+                  <%= image_tag "default.jpg", class:"course-item-img img" %>
+                  <div class="caption">
+                    <div class="photo-user">
+                      <% if @seal.user.avatar? %>
+                        <%= image_tag @seal.user.avatar.url, class: "show-round-img" %>
+                      <% else %>
+                        <%= image_tag "default.jpg", class: "show-round-img" %>
+                      <% end %>
+                      <p class="photo-user-name">
+                        <% if @seal.user_name.present? %>
+                          <%= link_to "#{@seal.user_name}", user_path(@seal.user_id) %>
+                        <% else %>
+                          <%= link_to "ななし#{@seal.user_id}", user_path(@seal.user_id) %>
+                        <% end %>
+                      </p>
+                      <p class="seal-date">参拝日 : <%= @seal.date %></p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%# -------------- %>
+  </div>
+  <hr>
+  <div class="contents-title text-center">
+    <p class="btn back-btn btn-primary text-center"><%= link_to "← 投稿一覧へ", :back %></p>
+  </div>
+</section>
+

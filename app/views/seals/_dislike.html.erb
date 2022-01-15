@@ -1,0 +1,5 @@
+<%# 「いいね」していない（クリックすると「いいね！」にする） %>
+<%= link_to seal_seal_likes_path(seal), {method: :post, remote: true, class: "dislike-heart"} do %>
+  <i class="far fa-heart"></i>
+<% end %>
+<%= seal.likes_count %>

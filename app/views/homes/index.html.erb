@@ -1,0 +1,20 @@
+<main role="main">
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+	<div class="carousel-inner bgCarousel">
+		<div class="carousel-item bgCarousel__item active"></div>
+		<div class="carousel-item bgCarousel__item"></div>
+		<div class="carousel-item bgCarousel__item"></div>
+    <div class="container">
+      <div class="carousel-caption">
+        <h1 class="top-title">神仏集合</h1>
+        <p class="lead top-text">参拝の思い出を共有してみませんか？</p>
+        <p><%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post, class:"btn btn-primary btn-lg guest", role:"button"%></p>
+      </div>
+    </div>
+	</div>
+</div>
+  <!-- 参拝記事 一覧 -->
+  <%= render "worships/worship" %>
+  <!-- ご朱印帳 一覧 -->
+  <%= render "seals/seal" %>
+</main>
