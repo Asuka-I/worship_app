@@ -35,7 +35,7 @@ class SealsController < ApplicationController
       redirect_to @seal, notice: "更新しました"
     else
       flash.now[:alert] = "更新に失敗しました"
-      render :new
+      render :edit
     end
   end
 
