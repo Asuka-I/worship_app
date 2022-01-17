@@ -2,4 +2,6 @@
   <h1>フォロー 一覧</h1>
 </div>
 <p><%= render "users_page" %></p>
-<%= link_to "もどる", user_path(id: current_user.id) %>
+<div class="text-center">
+<%= link_to "← もどる", user_path(id: current_user.id), class: "btn btn-primary text-center" %>
+</div>
