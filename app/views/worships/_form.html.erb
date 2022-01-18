@@ -38,7 +38,9 @@
         </label>
       </p>
       <p><%= f.submit button_value, class:"btn-sent-form btn btn-primary" %></p>
-      <p><%= link_to "戻る", :back %></p>
+      <div class="form-back-btn">
+        <%= link_to "←戻る", :back, class: "form-back-link common-link" %>
+      </div>
     <% end %>
   </div>
 </div>
