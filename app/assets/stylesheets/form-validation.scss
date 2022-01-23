@@ -27,6 +27,21 @@
   background-color: #ba2636;
 }
 
+/***** 戻るボタン *****/
+.form-back-btn {
+  color: #ba2636;
+  margin-bottom:20px;
+
+  .form-back-link {
+    color: #ba2636;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: darkred;
+  }
+}
+
 /***** レスポンシブ *****/
 @media screen and (max-width: 575px) {
   .form-contents {
