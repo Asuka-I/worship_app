@@ -114,13 +114,13 @@ ActiveRecord::Schema.define(version: 2022_01_16_233400) do
     t.string "category", null: false
     t.integer "prefecture_id", null: false
     t.string "place", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.text "content", null: false
     t.date "date", null: false
     t.json "images"
     t.float "rating"
-    t.integer "likes_count", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "likes_count"
     t.bigint "user_id", null: false
     t.string "address"
     t.index ["user_id"], name: "index_worships_on_user_id"
