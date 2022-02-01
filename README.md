@@ -1,24 +1,86 @@
-# README
+![aaaa](https://user-images.githubusercontent.com/69796819/152008634-2dc28fdc-d7ba-4ac3-a27e-030ef5124218.gif) 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 神仏集合
+![pf_main_img](https://user-images.githubusercontent.com/69796819/151986046-6b20b5b7-50c0-4740-be45-ea717735f042.jpg)
 
-Things you may want to cover:
+## URL
+* アプリURL : https://worships-app.herokuapp.com/
+(ホーム画面・ヘッダーから、ゲストログインボタンで簡単にログインできます。)
 
-* Ruby version
+## アプリの特徴
+参拝した寺社仏閣の魅力と思い出を記録、共有するアプリです。
+* 参拝した神社やお寺の紹介やレビューができる
+* 自分だけの御朱印帳を作る事ができる
+* 写真投稿で寺社仏閣の雰囲気がわかる
 
-* System dependencies
+## アプリの開発背景
+御朱印管理、寺社仏閣の検索アプリは存在するが、ユーザーが参拝した際の感想や、実際の雰囲気がわかる記事が一緒に掲載されているアプリやサイトが少ないと感じました。
+自分自身、手持ちの御朱印帳や写真を見返した際にどこの寺社か思い出せず、きちんと記録を残さなかった事を後悔した経験から、本アプリの開発にいたりました。
 
-* Configuration
+## 使用技術
+* 言語：Ruby (2.7.2)
+* フレームワーク：Ruby on Rails (6.1.3.2)
+* フロントエンド：HTML/Scss/JavaScript
+* DB：PostgreSQL
+* インフラ：Heroku/AWS（VPC・EC2・RDS・IAM・Route53）
+* ソースコード管理：GitHub
+* 開発環境：MacOS/Visual Studio Code
 
-* Database creation
+## 機能一覧
+| | 機能 | gem等 |
+|:---:|:---:|:---:|
+|1 | ログイン・ログアウト | devise |
+|2 | ユーザー登録・編集、削除 | devise |
+|3 | ゲストログイン機能 | devise |
+|4 | アカウント登録、編集、削除 | x |
+|5 | 参拝、御朱印記事投稿(CRUD) | x |
+|６ | コメント機能 | x |
+|7 | 画像投稿機能 | carrierwave/mini-magick |
+|8 | 画像カルーセル機能 | slick |
+|9 | 画像モーダルウィンドウ | modal.js |
+|10 | 管理者画面 | ActiveAdmin |
+|11 | 検索機能 | Ransack |
+|12 | いいね機能(非同期) | x |
+|13 | フォロー機能 | x |
+|14 | ページネーション | kaminari |
+|15 | レスポンシブデザイン | Bootstrap |
+|16 | フォーマッター | Rubocop |
 
-* Database initialization
+## 使い方
+[![Image from Gyazo](https://i.gyazo.com/2efdb8b037b9dff60834735ec22bf7ae.gif)](https://gyazo.com/2efdb8b037b9dff60834735ec22bf7ae)
 
-* How to run the test suite
+## 工夫した点
 
-* Services (job queues, cache servers, search engines, etc.)
+### タスク管理
+チーム開発を意識した開発を行う為、下記を実施
+1. Git, GitHub を用いたソース管理
+2. Projects のカンバン方式でタスクを管理を採用
+3. issue・ブランチをタスクごとに作成し
+4. 適切な頻度でのコミット、Pull Request
 
-* Deployment instructions
+### UI/UX
+* 日本の和をモチーフに配色を意識
+華美過ぎず、落ち着いたカラーを選定し、全体に統一感を待たせた
+![colors](https://user-images.githubusercontent.com/69796819/151981971-de6bb1a9-9c52-4a7d-8a7d-daa8c93ed412.jpg)
+* タイトル等に毛筆フォントを使用し、日本らしさを表現
+<img src="https://user-images.githubusercontent.com/69796819/151984523-497e5a64-a904-4759-991f-cb3cfdf2f633.jpg" width="200px">
+* 投稿記事一覧などにも日本をイメージしたイラストを盛り込んだ
 
-* ...
+### トップページ
+* 未ログインでも一部の機能利用制限を除いて、閲覧できるようにした
+* ゲストログイン機能を採用し、トップページ上部に分かりやすく配置
+
+### プロフィールページ
+* 自信が投稿した記事を表示し、管理のしやすさを意識
+
+### 画像表示
+* 投稿画像にはスライド機能を採用
+* モーダルウィンドウを用いて、画像選択時に大きく表示されるようにした
+
+## 追加予定機能
+* Googleマップ連携
+* 星評価
+* Twitterシェア
+* 記事の下書き機能
+* ブックマーク機能
+* いいねした記事を一覧表示
