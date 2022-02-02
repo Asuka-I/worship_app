@@ -1,10 +1,8 @@
-![aaaa](https://user-images.githubusercontent.com/69796819/152008634-2dc28fdc-d7ba-4ac3-a27e-030ef5124218.gif) 
-
 # 神仏集合
 ![pf_main_img](https://user-images.githubusercontent.com/69796819/151986046-6b20b5b7-50c0-4740-be45-ea717735f042.jpg)
 
 ## URL
-* アプリURL : https://worships-app.herokuapp.com/
+* アプリURL : https://worships-app.herokuapp.com/    
 (ホーム画面・ヘッダーから、ゲストログインボタンで簡単にログインできます。)
 
 ## アプリの特徴
@@ -46,8 +44,25 @@
 |15 | レスポンシブデザイン | Bootstrap |
 |16 | フォーマッター | Rubocop |
 
+## ER図
+![er](https://i.gyazo.com/0c66d1f9df4579722036361c67425384.png)
+
 ## 使い方
-[![Image from Gyazo](https://i.gyazo.com/2efdb8b037b9dff60834735ec22bf7ae.gif)](https://gyazo.com/2efdb8b037b9dff60834735ec22bf7ae)
+
+### ゲストログイン
+![pf_gestlogin_mov](https://user-images.githubusercontent.com/69796819/152141818-bf07b8d9-5f10-4778-9c9f-091cfdd517d4.gif)
+
+### 記事投稿
+![pf_post_mov](https://user-images.githubusercontent.com/69796819/152148644-c6a6b1ba-023d-414e-bff6-d1364c24b32b.gif)
+
+### 検索機能
+![pf_search_mov](https://user-images.githubusercontent.com/69796819/152149287-7be1d7ff-dbf0-4088-8a02-314979eec75b.gif)
+
+### コメント機能
+![pf_comment_mov](https://user-images.githubusercontent.com/69796819/152172016-4dd4eccc-d858-4874-b064-19f5d40c565c.gif)
+
+### プロフィール画面
+![pf_mypage_mov](https://user-images.githubusercontent.com/69796819/152180005-791a8802-bc2c-4395-b216-a0507d0a17da.gif)
 
 ## 工夫した点
 
