@@ -146,9 +146,9 @@
       <% @comments.each do |comment| %>
         <p class="comment-content">
           <% if @worship.user_name.present? %>
-            <%= link_to "#{@worship.user_name}", user_path(@worship.user_id) %>
+            <%= link_to "#{comment.user_name}", user_path(comment.user_id) %>
           <% else %>
-            <%= link_to "ななし#{@worship.user_id}", user_path(@worship.user_id) %>
+            <%= link_to "ななし#{comment.user_id}", user_path(comment.user_id) %>
           <% end %>
           <%= comment.content %>
         </p>
