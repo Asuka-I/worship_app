@@ -2,7 +2,7 @@
 ![pf_main_img](https://user-images.githubusercontent.com/69796819/151986046-6b20b5b7-50c0-4740-be45-ea717735f042.jpg)
 
 ## URL
-* アプリURL : https://worships-app.herokuapp.com/    
+* アプリURL : https://worship-app-web.onrender.com   
 (ホーム画面・ヘッダーから、ゲストログインボタンで簡単にログインできます。)
 
 ## アプリの特徴
