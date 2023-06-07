@@ -1,0 +1,77 @@
+/* Card styles for rotation */
+.rotate-container {
+  position: relative;
+}
+
+.follow-title {
+  margin-top: 20px;
+}
+
+.rotate-container .card-front, .rotate-container .card-back {
+  width: 100%;
+  height: 100%;
+  -webkit-transform: perspective(600px) rotateY(0deg);
+          transform: perspective(600px) rotateY(0deg);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: all 0.5s linear 0s;
+  transition: all 0.5s linear 0s;
+}
+
+.rotate-container .rotate-card-front {
+  -webkit-transform: perspective(1600px) rotateY(-180deg);
+          transform: perspective(1600px) rotateY(-180deg);
+}
+
+/* Modified card styles */
+.card {
+  -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
+
+.card .card-background {
+  background: #ba2636;
+  height: 3em;
+  background-position: center center;
+  background-size: cover;
+}
+
+.card .avatar {
+  max-width: 6em;
+  max-height: 6em;
+  margin-top: -2em;
+  margin-bottom: 1em;
+  border: 4px solid white;
+  border-radius: 50%;
+  background: radial-gradient(#e3e3e3, #329A7C, #109381);
+}
+
+.card .btn {
+  margin-bottom: 1em;
+  cursor: pointer;
+  width: 125px;
+}
+
+.card .btn a {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+}
+
+.card .follow {
+  background: #fff !important;
+  border: 2px solid #ba2636;
+  width: 125px;
+}
+
+.card .follow a {
+  display: block;
+  color: #ba2636;
+  text-decoration: none;
+}
+
+.card .follow a:hover {
+  color: #fff !important;
+}
+/*# sourceMappingURL=follow.css.map */

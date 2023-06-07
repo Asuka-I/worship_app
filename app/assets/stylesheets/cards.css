@@ -1,0 +1,143 @@
+@charset "UTF-8";
+/***** 共通 カードデザイン *****/
+.card {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 5px #ccc;
+          box-shadow: 0 2px 5px #ccc;
+  height: 370px;
+}
+
+@media screen and (max-width: 576px) {
+  .card {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    height: 385px;
+  }
+}
+
+.card-body {
+  padding: 18px 1.25rem !important;
+}
+
+.card-img {
+  border-radius: 5px 5px 0 0;
+  max-width: 100%;
+  height: auto;
+}
+
+.card-img-top {
+  height: 195px;
+  width: 100%;
+}
+
+@media screen and (max-width: 992px) {
+  .card-img-top {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .card-img-top {
+    height: 150px;
+    width: 100%;
+  }
+}
+
+.index-place {
+  color: #000011;
+}
+
+.card-text {
+  color: #000011;
+  font-weight: bord;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.card-link {
+  text-align: center;
+  border-top: 1px solid #eee;
+  padding: 20px;
+}
+
+.card-link .card-link a {
+  text-decoration: none;
+  color: #ba2636;
+  margin: 0 10px;
+}
+
+.card-link a:hover {
+  color: #ba2636;
+}
+
+.index-user {
+  position: absolute;
+  width: 100%;
+  left: 10px;
+  bottom: 20px;
+}
+
+.index-user .index-round-img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 0 5px 0 0;
+  float: left;
+  position: relative;
+  bottom: 9px;
+}
+
+.index-user .index-round-img .index-user-name {
+  color: #ba2636;
+  font-size: 30px;
+  display: inline-block;
+}
+
+.index-user .index-round-img .index-user-name .index-user-name a {
+  color: #F8F8FF;
+  text-decoration: none;
+}
+
+.index-user .index-round-img .index-user-name a:hover {
+  color: darkred;
+}
+
+/***** 共通 アイコン *****/
+.worships-icon {
+  margin-top: -3px;
+}
+
+.shrine-icon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.temple-icon {
+  height: 0.9rem;
+  width: 0.9rem;
+}
+
+/***** 参拝投稿 背景 *****/
+.worship-index {
+  background-color: #feffff;
+  background-image: image-url("bg_ume.jpg");
+  background-size: 50%;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}
+
+/***** ご朱印帳 背景 *****/
+.seal-index {
+  background-color: #feffff;
+  background-image: image-url("bg_crane.jpg");
+  background-size: 40%;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}
+/*# sourceMappingURL=cards.css.map */
