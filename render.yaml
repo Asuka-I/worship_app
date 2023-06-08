@@ -10,7 +10,7 @@ services:
     env: ruby
     region: singapore
     plan: free
-    branch: main
+    branch: release/3.0
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
